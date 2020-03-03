@@ -50,7 +50,7 @@ body {
 }
 
 .section {
-    background-image: url("https://uw-cse442-wi20.github.io/FP-understanding-drug-abuse/tiles.13f9fad1.png");
+    background-image: url("./img/tiles.png");
     background-repeat: repeat;
 }
 
@@ -76,7 +76,7 @@ body {
 }
 
 .bg-opacity {
-    background-image: url("https://uw-cse442-wi20.github.io/FP-understanding-drug-abuse/title.625afea2.jpg");
+    background-image: url("./img/title.jpg");
     width: 100%;
     height: 100%;
     position: relative;
@@ -363,6 +363,3 @@ button:focus {
     html {font-size: 14px }
 }
 
-
-
-/*# sourceMappingURL=https://uw-cse442-wi20.github.io/FP-understanding-drug-abuse/src.e982fe2d.css.map */

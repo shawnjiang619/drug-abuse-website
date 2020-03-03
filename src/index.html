@@ -3,9 +3,68 @@
   <head>
     <meta charset="UTF-8">
     <title>My Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="./d3pie.min.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+
+
+    <!-- CSS -->
+    <link type="text/css" href="./pie.css" rel="stylesheet">
+    <link type="text/css" href="./index.css" rel="stylesheet">
+
+    <!-- Fullpage -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./fullpage-js/jquery.fullPage.css"/>
+    <script type="text/javascript" src="./fullpage-js/fullpage.scrollHorizontally.min.js"></script>
+    <script type="text/javascript" src="./fullpage-js/jquery.fullpage.extensions.min.js"></script>
+
+
+    <script type="text/javascript" src="./main.js"></script>
+
   </head>
   <body>
-    <h1>My Webpage</h1>
+    <div id="fullpage">
+      <div class="section title-page bg-image" id="title-bg">
+        <div class="bg-opacity">
+          <div id="title-wrapper">
+              <h1 id="main-title">Unstable Concoctions</h1>
+              <h4 id="main-subtitle">Exploring Drug Abuse Around the World</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="section pie">
+        <div class="slide pie-viz">
+          <div id="pie-container" class="section-container">
+            
+            <div class="section-intro">
+              <h1>An Overview of the Most Popular Drugs</h1>
+              <h5> <br><span class="text-em">Click on a segment to find out more.</span></br> </h5>
+            </div>
+            <div id="pie-wrapper" class="viz-wrapper">
+              <div id="pie-chart-content">
+                <div id="pie-chart"></div>
+              </div>
+              
+              <div id="pie-defs-wrapper" class="insights-wrapper">
+                <div id="pie-instr"><h3>Select a drug to learn more</h3></div>
+                <div id="pie-defs-container">
+                  
+                  <h2 id="pie-defs-header" class="insights-header"></h2>
+                  
+                  <div id="pie-definition">TODO: Add definition</div>
+
+                  <div id="state-law">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>

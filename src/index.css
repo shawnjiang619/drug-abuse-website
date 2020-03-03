@@ -1,0 +1,365 @@
+/*
+Blood Red: #872121,  #a42828
+Black: #262429
+White: #FAFAFA
+Light: #B5C2B7
+Pastel peach: #B89685
+*/
+a { 
+    color: #EF3B2C;
+}
+
+html,
+body,
+#fullpage,
+.section{
+    height: 100%;
+}
+
+/* Reset margins */
+h1, h2, h3, h4, div, h5, h6 {
+    margin: 0px;
+}
+
+ul {
+    padding-left: 20px;
+}
+li {
+    margin-bottom: 1em;
+}
+
+html { font-size: 12px; }
+h1 { font-size: 3.4em;  line-height: 1.05em; font-weight: 700; } 
+h2 { font-size: 1.55em; line-height: 1.35em; font-weight: 700; }
+h3 { font-size: 1.2em; line-height: 1.35em; font-weight: 700; }  
+h4 { font-size: 1.55em; line-height: 1.35em; font-weight: 300; } 
+h5 { font-size: 1.2em;  line-height: 1.30em; font-weight: 400; }
+.axis text { font-size: 1.2em; font-weight: 300; }
+button { font-size: 1em; font-weight: 700; }
+h6 { font-size: 1em; line-height: 1.3em; font-weight: 400; } /* Legends, Insights text */ 
+h7 { font-size: 0.9em; line-height: 1em; font-weight: 400; }
+.timeline-total-count-label {font-size: 1em; line-height: 1.35em; font-weight: 700;}
+.label-total, .text-values {font-size: 0.8em; line-height: 1em; font-weight: 400; }
+.center-page, .scroll-down { font-size: 1.2em; line-height: 1.35em; font-weight: 300; } 
+#sunburst-text { font-size: 1.0em; line-height:1.2em; font-weight: 400; }
+/*.legendTitle, .label { font-size: 1.3em; font-weight: 400; }*/
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #FAFAFA;
+}
+
+.section {
+    background-image: url("./img/tiles.png");
+    background-repeat: repeat;
+}
+
+.section, .slide {
+    position: relative;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+.center-page {
+    position: absolute;
+    bottom: 60px;
+    right: 50%;
+}
+
+.bg-image  {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-opacity {
+    background-image: url("./img/title.jpg");
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* For slides with background images */
+.slide .bg-opacity .intro-para {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#title-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#main-title {
+    display: inline-block;
+    text-align: center;
+}
+
+#main-subtitle {
+    color: #a42828;
+    text-align: right;
+}
+
+.text-red {
+    color: #a42828;
+}
+
+.intro-para {
+    width:60%;
+    margin: 0 auto;
+}
+
+/* dot color */
+#fp-nav ul li a span {
+    background-color: #a42828;
+}
+
+#input-wrapper {
+    margin-top: 5%;
+}
+
+#zipcode-entry {
+    color: #262429;
+    padding: 15px;
+    width: 45%;
+    border: 1px solid #262429;
+    background-color: #FAFAFA;
+}
+
+button {
+    text-align: left;
+    font-weight: 700;
+    color: #262429;
+    padding: 15px;
+    width: 80%;
+    border: 1px solid #262429;
+    background-color: #FAFAFA;
+}
+
+button:hover, 
+button:active {
+    color: #FAFAFA;
+    background-color: #262429;
+    border: 1px solid #FAFAFA;
+}
+
+button.focused {
+    color: #262429;
+    background-color: #B89685;
+    border: 1px solid #262429;
+}
+
+button:focus {
+    outline:0;
+}
+
+.text-em {
+    color: #EF3B2C;
+    font-weight: 700;
+}
+
+.section-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.section-intro {
+    margin-bottom: 50px;
+    width: 80%;
+    margin-top: 30px;
+}
+
+.section-intro h5 {
+    width: 70%;
+    margin-top: 20px;
+}
+
+.viz-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.viz-filter-buttons button {
+  margin-bottom: 10px;
+}
+
+.viz-content {
+    position: relative;
+    flex: 0 0 65%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.viz-filter-buttons {
+    flex: 0 0 10%;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 80px 0;
+}
+
+/*Insights*/
+.insights-wrapper {
+    background-color: rgba(182, 195, 184, 0.2);
+    color: #FAFAFA;
+    flex: 0 0 20%;
+    padding: 20px;
+    height: 40vh;
+    position: relative;
+}
+
+.insights-next {
+    position: absolute;
+    text-align: center; 
+    width: 40%;
+    bottom: 20px;
+    right: 20px;
+}
+
+
+.insights-header {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 0.5px solid #FAFAFA;
+}
+
+#sources-container {
+    margin-bottom: 10%;
+}
+
+#about-container {
+    margin-bottom: 30%;
+}
+
+#sources-intro {
+    display: flex;
+    width: 100%;
+}
+
+#sources-intro h5 {
+    width: 100%
+}
+
+#sources-col, #special-thanks {
+    flex: 0 0 45%;
+}
+
+#spacer {
+    flex: 0 0 10%
+}
+
+#proj-intro {
+    width: 100%;
+}
+
+#about-intro {
+    width: 70%;
+}
+
+#about-wrapper {
+    margin-top: 10vh;
+    position: relative;
+
+}
+
+#about-wrapper p {
+    text-align: center;
+    font-size: 17px;
+}
+
+.circular {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border: solid 1px white;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+
+    position: relative;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.circular:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
+.conclusion-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+#find-rep {
+    flex: 0 0 30%;
+    background-color: rgba(182, 195, 184, 0.2);
+    padding: 20px;
+    height: 70%;
+}
+
+#pledge {
+    flex: 0 0 60%;
+    background-color: rgba(182, 195, 184, 0.2);
+    padding: 20px;
+}
+
+#pledge h3 {
+    text-align: center;
+}
+
+#find-button {
+    text-align: left;
+    font-weight: 700;
+    color: #262429;
+    padding: 15px;
+    border: 1px solid #262429;
+    background-color: #FAFAFA;
+    width: 40%;
+    float:right;
+}
+
+#find-button:hover, 
+#find-button:active {
+    color: #FAFAFA;
+    background-color: #262429;
+    border: 1px solid #FAFAFA;
+}
+
+#find-button.focused {
+    color: #262429;
+    background-color: #B89685;
+    border: 1px solid #262429;
+}
+
+#circle-unit h5, #circle-unit svg {
+    display: inline;
+}
+
+#circle-unit {
+    text-align: center;
+}
+
+
+
+@media screen and (min-width: 1100px) {
+    html {font-size: 10px }
+}
+
+@media screen and (min-width: 1300px) {
+    html {font-size: 11px }
+}
+
+@media screen and (min-width: 1600px) {
+    html {font-size: 14px }
+}
+

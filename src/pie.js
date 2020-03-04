@@ -23,8 +23,8 @@ var pie;
 			},
 			"size": {
 				"canvasWidth": 900,
-				"canvasHeight": 700,
-				"pieOuterRadius": "80%"
+				"canvasHeight": 600,
+				"pieOuterRadius": "70%"
 			},
 			"data": {
 				"sortOrder": "value-desc",
@@ -98,7 +98,7 @@ var pie;
 			},
 			"labels": {
 				"outer": {
-					"pieDistance": 24
+					"pieDistance": 36
 				},
 				"inner": {
 					"hideWhenLessThanPercentage": 3
@@ -106,7 +106,7 @@ var pie;
 				"mainLabel": {
 					"font": "open sans",
 					"color": "#1A1A1A",
-					"fontSize": 24
+					"fontSize": 16
 				},
 				"percentage": {
 					"color": "#ffffff",

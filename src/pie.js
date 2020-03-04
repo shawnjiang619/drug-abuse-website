@@ -1,7 +1,11 @@
-var pie = new d3pie("pie-chart", {
+var pie;
+(function(){
+	executePie = function() {
+		pie = new d3pie("pie-chart", {
 			"header": {
 				"title": {
-					"fontSize": 24,
+					"text": "Average Annual Dosage Distribution",
+					"fontSize": 28,
 					"font": "open sans"
 				},
 				"subtitle": {
@@ -9,7 +13,7 @@ var pie = new d3pie("pie-chart", {
 					"fontSize": 12,
 					"font": "open sans"
 				},
-				"titleSubtitlePadding": 9
+				"titleSubtitlePadding": 0
 			},
 			"footer": {
 				"color": "#999999",
@@ -19,7 +23,8 @@ var pie = new d3pie("pie-chart", {
 			},
 			"size": {
 				"canvasWidth": 900,
-				"pieOuterRadius": "90%"
+				"canvasHeight": 700,
+				"pieOuterRadius": "80%"
 			},
 			"data": {
 				"sortOrder": "value-desc",
@@ -27,67 +32,67 @@ var pie = new d3pie("pie-chart", {
 					{
 						"label": "Alcohol",
 						"value": 567,
-						"color": "#2383c1"
+						"color": "#FFA07A"
 					},
 					{
 						"label": "Marijuana",
 						"value": 730,
-						"color": "#64a61f"
+						"color": "#FA8072"
 					},
 					{
 						"label": "Cocaine",
 						"value": 126,
-						"color": "#7b6788"
+						"color": "#E9967A"
 					},
 					{
 						"label": "Crack",
 						"value": 210.5,
-						"color": "#a05c56"
+						"color": "#F08080"
 					},
 					{
 						"label": "Heroin",
 						"value": 1172.5,
-						"color": "#961919"
+						"color": "#CD5C5C"
 					},
 					{
 						"label": "Hallucinogen",
 						"value": 143,
-						"color": "#d8d239"
+						"color": "#DC143C"
 					},
 					{
 						"label": "Inhalant",
 						"value": 98.5,
-						"color": "#e98125"
+						"color": "#B22222"
 					},
 					{
 						"label": "Pain-Reliever",
 						"value": 250,
-						"color": "#d0743c"
+						"color": "#FF0000"
 					},
 					{
 						"label": "Oxycontin",
 						"value": 237,
-						"color": "#635122"
+						"color": "#8B0000"
 					},
 					{
 						"label": "Tranquilizer",
 						"value": 199.5,
-						"color": "#6ada6a"
+						"color": "#FF6347"
 					},
 					{
 						"label": "Stimulant",
 						"value": 529.5,
-						"color": "#0b6197"
+						"color": "#800000"
 					},
 					{
 						"label": "Meth",
 						"value": 539.5,
-						"color": "#7c9058"
+						"color": "#DB7093"
 					},
 					{
 						"label": "Sedative",
 						"value": 329.5,
-						"color": "#207f32"
+						"color": "#FF4500"
 					}
 				]
 			},
@@ -100,7 +105,7 @@ var pie = new d3pie("pie-chart", {
 				},
 				"mainLabel": {
 					"font": "open sans",
-					"color": "#FAFAFA",
+					"color": "#1A1A1A",
 					"fontSize": 24
 				},
 				"percentage": {
@@ -124,7 +129,7 @@ var pie = new d3pie("pie-chart", {
 			"tooltips": {
 				"enabled": true,
 				"type": "placeholder",
-				"string": "{label}: {value}, {percentage}%"
+				"string": "{label}: {percentage}%"
 			},
 			"effects": {
 				"pullOutSegmentOnClick": {
@@ -144,4 +149,6 @@ var pie = new d3pie("pie-chart", {
 					console.log("click:", info);
 				}
 			}
-});
+		});	
+	}
+})();

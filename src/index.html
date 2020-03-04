@@ -2,69 +2,228 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Title</title>
+    <title>Understanding Drug Abuse</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="./d3pie.min.js"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 
 
-
-    <!-- CSS -->
-    <link type="text/css" href="./pie.css" rel="stylesheet">
-    <link type="text/css" href="./index.css" rel="stylesheet">
-
     <!-- Fullpage -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./fullpage-js/jquery.fullPage.css"/>
-    <script type="text/javascript" src="./fullpage-js/fullpage.scrollHorizontally.min.js"></script>
-    <script type="text/javascript" src="./fullpage-js/jquery.fullpage.extensions.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./fullpage-js/fullpage.css"/>
+    <script type="text/javascript" src="./fullpage-js/fullpage.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="jquery.counterup.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 
-
-    <script type="text/javascript" src="./main.js"></script>
+    <!-- CSS -->
+    <link type="text/css" href="./index.css" rel="stylesheet">
+    <link type="text/css" href="./pie.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./bar.css">
+    <link rel="stylesheet" type="text/css" href="./map.css">
+    <link rel="stylesheet" href="./num.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
   <body>
+
     <div id="fullpage">
       <div class="section title-page bg-image" id="title-bg">
-        <div class="bg-opacity">
-          <div id="title-wrapper">
-              <h1 id="main-title">Unstable Concoctions</h1>
-              <h4 id="main-subtitle">Exploring Drug Abuse Around the World</h4>
-          </div>
-        </div>
       </div>
 
       <div class="section pie">
-        <div class="slide pie-viz">
-          <div id="pie-container" class="section-container">
-            
-            <div class="section-intro">
-              <h1>An Overview of the Most Popular Drugs</h1>
-              <h5> <br><span class="text-em">Click on a segment to find out more.</span></br> </h5>
+        <div id="pie-container" class="section-container">
+          <div class="section-intro">
+            <h1>An Overview of the Most Addictive Substances</h1>
+            <h5> <br><span class="dir">Click on a segment to find out more.</span></br> </h5>
+          </div>
+          <div id="pie-wrapper" class="viz-wrapper">
+            <div id="pie-chart-content">
+              <div id="pie-chart"></div>
             </div>
-            <div id="pie-wrapper" class="viz-wrapper">
-              <div id="pie-chart-content">
-                <div id="pie-chart"></div>
-              </div>
-              
-              <div id="pie-defs-wrapper" class="insights-wrapper">
-                <div id="pie-instr"><h3>Select a drug to learn more</h3></div>
-                <div id="pie-defs-container">
-                  
-                  <h2 id="pie-defs-header" class="insights-header"></h2>
-                  
-                  <div id="pie-definition">TODO: Add definition</div>
-
-                  <div id="state-law">
-                  </div>
-                </div>
+            
+            <div id="pie-defs-wrapper">
+              <!-- <div id="pie-instr"><h3>Select a drug to learn more</h3></div> -->
+              <div id="pie-defs-container">
+                <h2 id="pie-defs-header">Heroin</h2>
+                
+                <div id="pie-definition">TODO: Add definition</div>
+                <h2 id="pie-defs-pic">IMAGE OF THE SUBSTANCE</h2>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="section bar">
+        <div id="bar-container" class="section-container">
+          <div class="section-intro">
+            <h1>Most Popular Substances</h1>
+            <h5> <br><span class="dir">Hover over bars to find out more.</span></br> </h5>
+          </div>
+
+          <div id="bar-wrapper" class="viz-wrapper">
+            <div id='bar-layout'>
+              <div id='bar-background'>
+                <svg id='bar-chart'/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section sunburst">
+        <div id="sunburst-container" class="section-container">
+          <div class="section-intro">
+            <h1>Drug Use By Age</h1>
+            <h5> <br><span class="dir">TODO: Sunburst Chart</span></br> </h5>
+          </div>  
+        </div>
+      </div>
+
+      <div class="section map tableue">
+          <div id="map-container" class="section-container">
+            <div class='tableauPlaceholder' id='viz1583205922601' style='position: relative; height: 50px; width: 25px'>
+              <noscript>
+                  <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;98&#47;983J478PB&#47;1_rss.png' style='border: none' />
+                  </a>
+              </noscript>
+              <object class='tableauViz'  style='display:none;'>
+                  <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                  <param name='embed_code_version' value='3' /> 
+                  <param name='path' value='shared&#47;983J478PB' /> 
+                  <param name='toolbar' value='yes' />
+                  <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;98&#47;983J478PB&#47;1.png' /> 
+                  <param name='animate_transition' value='yes' />
+                  <param name='display_static_image' value='yes' />
+                  <param name='display_spinner' value='yes' />
+                  <param name='display_overlay' value='yes' />
+                  <param name='display_count' value='yes' />
+              </object>
+            </div>                
+            <script type='text/javascript'>                    
+                  var divElement = document.getElementById('viz1583205922601');                    
+                  var vizElement = divElement.getElementsByTagName('object')[0];                    
+                  if ( divElement.offsetWidth > 800 ) { 
+                      vizElement.style.width='100%';
+                      vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                  } else if ( divElement.offsetWidth > 500 ) { 
+                      vizElement.style.width='100%';
+                      vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                  } else { 
+                      vizElement.style.width='100%';
+                      vizElement.style.height='827px';
+                  }                     
+                  var scriptElement = document.createElement('script');                    
+                  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                  vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+            </script>
+          </div>
+      </div>
+
+      <div class="section treemap">
+        <div id="treemap-container" class="section-container">
+          <div class="section-intro">
+            <h1>Some Treemap Viz</h1>
+            <h5> <br><span class="dir">TODO: Treemap Chart</span></br> </h5>
+          </div>  
+        </div>
+      </div>
+
+      <div class="section crime">
+        <div id="crime-container" class="section-container">
+          <div class="section-intro">
+            <h1>Crime and Drugs</h1>
+            <h5> <br><span class="dir">TODO: Crime Chart</span></br> </h5>
+          </div>  
+        </div>
+      </div>
+
+      <div class="section num">
+        <br>
+        <br>
+        <br>
+        <center><p1>Maximum number of deaths caused by drug use...</p1></center>
+        <div class="container counter-section">
+        <div class="row text-center">
+        
+        <div class="col-md-4 counter-box">
+        <p class="counter">1632</p>
+        <p>AFRICA</p>
+        </div>
+    
+        <div class="col-md-4 counter-box">
+        <p class="counter">77416</p>
+        <p>AMERICAS</p>
+        </div>
+    
+        <div class="col-md-4 counter-box">
+        <p class="counter">32518</p>
+        <p>ASIA</p>
+        </div>
+    
+        <div class="col-md-4 counter-box">
+        <p class="counter">19883</p>
+        <p>EUROPE</p>
+        </div>
+    
+        <div class="col-md-4 counter-box">
+        <p class="counter">2160</p>
+        <p>AUSTRALIA</p>
+        </div>
+    
+        <div class="col-md-4 counter-box">
+          <p class="counter">133609</p>
+          <p>GLOBAL</p>
+        </div>
+    
+        </div>
+        </div>
+      </div>
+
+      <div class="section bubble tableue">
+        <div id="bubble-container" class="section-container">
+          <div class='tableauPlaceholder' id='viz1583289531802' style='position: relative'>
+            <noscript>
+                <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;US_state_deaths&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a>
+            </noscript>
+            <object class='tableauViz'  style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='site_root' value='' />
+                <param name='name' value='US_state_deaths&#47;Dashboard1' />
+                <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;US_state_deaths&#47;Dashboard1&#47;1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='filter' value='publish=yes' />
+            </object>
+          </div>                
+          <script type='text/javascript'>                    
+              var divElement = document.getElementById('viz1583289531802');                   
+              var vizElement = divElement.getElementsByTagName('object')[0];                    
+              if ( divElement.offsetWidth > 800 ) { 
+                  vizElement.style.width='700px';vizElement.style.height='627px';
+              } else if ( divElement.offsetWidth > 500 ) { 
+                  vizElement.style.width='700px';vizElement.style.height='627px';
+              } else { 
+                  vizElement.style.width='100%';vizElement.style.height='727px';
+              }                     
+              var scriptElement = document.createElement('script');                    
+              scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+              vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+          </script>
+        </div>
+      </div>
     </div>
+
+    <script type="text/javascript" src="./main.js"></script>
     <script src="./pie.js"></script>
+    <script src="./bar.js"></script>
   </body>
 </html>

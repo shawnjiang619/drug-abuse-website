@@ -1,0 +1,70 @@
+#bar-layout {
+  text-align: center;
+}
+
+#bar-background {
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bar {
+  fill: #B22222;
+}
+
+#bar-text {
+  font-size: 12px;
+  fill: #fff;
+}
+
+#bar-path {
+  stroke: gray;
+}
+
+#bar-line {
+  stroke: gray;
+}
+
+line#limit {
+  stroke: #111E6C;
+  stroke-width: 3;
+  stroke-dasharray: 3 6;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.grid .tick line {
+  stroke: #9FAAAE;
+  stroke-opacity: 0.3;
+}
+
+text.divergence {
+  font-size: 14px;
+  fill: #1a1a1a;
+}
+
+
+text.label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+text.source {
+  font-size: 10px;
+}
+
+text.value {
+  font-size: 14px;
+}
+
+text.title {
+  font-size: 22px;
+  font-weight: 600;
+}

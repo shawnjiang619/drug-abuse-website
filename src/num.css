@@ -1,0 +1,24 @@
+p1{
+    font-size: 45px;
+    padding-top: 100px;
+}
+
+.counter-section{
+    margin: 5%;
+    display: flex;
+    width: 100%;
+}
+
+.icon-box{
+    height: 40px;
+    width: 50px;
+    margin: 20px auto;
+}
+
+.counter-box{
+    font-size: 30px;
+}
+
+.counter-box .counter {
+    font-size: 50px;
+}

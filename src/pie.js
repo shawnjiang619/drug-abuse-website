@@ -1,6 +1,18 @@
 var pie;
 var EXECUTED = false;
 (function(){
+
+	var drugDef = {};
+
+	resetDef = function() {
+		$('pie-defs-container').hide();
+		$('pie-instr').show();
+	}
+
+	generateDef = function() {
+	}
+
+
 	executePie = function() {
 		if (EXECUTED == false) {
 			pie = new d3pie("pie-chart", {
@@ -153,6 +165,14 @@ var EXECUTED = false;
 				}
 			});
 			EXECUTED = true;
+			d3.csv('definitions.csv', function(data) {
+				data.forEach(function(d) {
+					drugDef[d.name] = {};
+					drugDef[d.name]["how"] = d.how;
+					drugDef[d.name]["effects"] = d.effects;
+				});
+				console.log(drugDef);
+			});
 		}
 		
 	}

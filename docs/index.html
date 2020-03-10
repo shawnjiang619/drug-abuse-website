@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- JavaScript -->
+    <!-- <script src="./pie.js"></script> -->
+
   </head>
   <body>
 
@@ -43,12 +46,12 @@
             <div id="pie-chart-content">
               <div id="pie-chart"></div>
             </div>
-            
+
             <div id="pie-defs-wrapper">
               <!-- <div id="pie-instr"><h3>Select a drug to learn more</h3></div> -->
               <div id="pie-defs-container">
                 <h2 id="pie-defs-header">Heroin</h2>
-                
+
                 <div id="pie-definition">TODO: Add definition</div>
                 <h2 id="pie-defs-pic">IMAGE OF THE SUBSTANCE</h2>
               </div>
@@ -64,14 +67,23 @@
             <h5> <br><span class="dir">Hover over bars to find out more.</span></br> </h5>
           </div>
 
-          <div id="bar-wrapper" class="viz-wrapper">
-            <div id='bar-layout'>
-              <div id='bar-background'>
-                <svg id='bar-chart'/>
+              <div id="bar-wrapper" class="viz-wrapper">
+                <div id='bar-layout'>
+                  <div id='bar-background'>
+                    <svg id='bar-chart'/>
+                  </div>
               </div>
-            </div>
+
+              <div id="text-wrapper">
+                <p>Based on information presented on the right, we can clearly see that Marijuana is the top runner in drug popularity.
+                  A survey done in 2018 shows that more than 43 million citizens have used cannabis product in the past month. That’s around 15 percent of the US population.
+                  Several reasons contribute to this matter. Marijuana legalization have led to more cannabis use and perhaps addiction
+                  — highlighting a public health downside to a policy change that now 11 states and Washington, DC, have adopted and several others are considering.
+                  Another reason Marijuana is becoming mainstream is that lots of people think its harmless. By a margin of 72 percent to 20 percent, Americans say that regular alcohol use is more of a health risk than regular marijuana use.
+                </p>
+              </div>
           </div>
-        </div>
+          </div>
       </div>
 
       <div class="section sunburst">
@@ -79,11 +91,11 @@
           <div class="section-intro">
             <h1>Drug Use By Age</h1>
             <h5> <br><span class="dir">TODO: Sunburst Chart</span></br> </h5>
-          </div>  
+          </div>
         </div>
       </div>
 
-      <div class="section map tableue">
+      <div class="section map">
           <div id="map-container" class="section-container">
             <div class='tableauPlaceholder' id='viz1583205922601' style='position: relative; height: 50px; width: 25px'>
               <noscript>
@@ -91,34 +103,34 @@
                   </a>
               </noscript>
               <object class='tableauViz'  style='display:none;'>
-                  <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
-                  <param name='embed_code_version' value='3' /> 
-                  <param name='path' value='shared&#47;983J478PB' /> 
-                  <param name='toolbar' value='yes' />
-                  <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;98&#47;983J478PB&#47;1.png' /> 
+                  <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                  <param name='embed_code_version' value='3' />
+                  <param name='path' value='shared&#47;983J478PB' />
+                  <param name='toolbar' value='no' />
+                  <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;98&#47;983J478PB&#47;1.png' />
                   <param name='animate_transition' value='yes' />
                   <param name='display_static_image' value='yes' />
                   <param name='display_spinner' value='yes' />
                   <param name='display_overlay' value='yes' />
                   <param name='display_count' value='yes' />
               </object>
-            </div>                
-            <script type='text/javascript'>                    
-                  var divElement = document.getElementById('viz1583205922601');                    
-                  var vizElement = divElement.getElementsByTagName('object')[0];                    
-                  if ( divElement.offsetWidth > 800 ) { 
+            </div>
+            <script type='text/javascript'>
+                  var divElement = document.getElementById('viz1583205922601');
+                  var vizElement = divElement.getElementsByTagName('object')[0];
+                  if ( divElement.offsetWidth > 800 ) {
                       vizElement.style.width='100%';
                       vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                  } else if ( divElement.offsetWidth > 500 ) { 
+                  } else if ( divElement.offsetWidth > 500 ) {
                       vizElement.style.width='100%';
                       vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                  } else { 
+                  } else {
                       vizElement.style.width='100%';
                       vizElement.style.height='827px';
-                  }                     
-                  var scriptElement = document.createElement('script');                    
-                  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-                  vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                  }
+                  var scriptElement = document.createElement('script');
+                  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                  vizElement.parentNode.insertBefore(scriptElement, vizElement);
             </script>
           </div>
       </div>
@@ -128,7 +140,7 @@
           <div class="section-intro">
             <h1>Some Treemap Viz</h1>
             <h5> <br><span class="dir">TODO: Treemap Chart</span></br> </h5>
-          </div>  
+          </div>
         </div>
       </div>
 
@@ -137,7 +149,7 @@
           <div class="section-intro">
             <h1>Crime and Drugs</h1>
             <h5> <br><span class="dir">TODO: Crime Chart</span></br> </h5>
-          </div>  
+          </div>
         </div>
       </div>
 
@@ -148,53 +160,53 @@
         <center><p1>Maximum number of deaths caused by drug use...</p1></center>
         <div class="container counter-section">
         <div class="row text-center">
-        
+
         <div class="col-md-4 counter-box">
         <p class="counter">1632</p>
         <p>AFRICA</p>
         </div>
-    
+
         <div class="col-md-4 counter-box">
         <p class="counter">77416</p>
         <p>AMERICAS</p>
         </div>
-    
+
         <div class="col-md-4 counter-box">
         <p class="counter">32518</p>
         <p>ASIA</p>
         </div>
-    
+
         <div class="col-md-4 counter-box">
         <p class="counter">19883</p>
         <p>EUROPE</p>
         </div>
-    
+
         <div class="col-md-4 counter-box">
         <p class="counter">2160</p>
         <p>AUSTRALIA</p>
         </div>
-    
+
         <div class="col-md-4 counter-box">
           <p class="counter">133609</p>
           <p>GLOBAL</p>
         </div>
-    
+
         </div>
         </div>
       </div>
 
-      <div class="section bubble tableue">
+      <div class="section crime">
         <div id="bubble-container" class="section-container">
-          <div class='tableauPlaceholder' id='viz1583289531802' style='position: relative'>
-            <noscript>
-                <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;US_state_deaths&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a>
+          <div class='tableauPlaceholder' id='viz1583390147278' style='position: relative'>
+            <noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;US_state_deaths&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a>
             </noscript>
             <object class='tableauViz'  style='display:none;'>
                 <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
                 <param name='embed_code_version' value='3' /> 
                 <param name='site_root' value='' />
                 <param name='name' value='US_state_deaths&#47;Dashboard1' />
-                <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
                 <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;US_state_deaths&#47;Dashboard1&#47;1.png' /> 
                 <param name='animate_transition' value='yes' />
                 <param name='display_static_image' value='yes' />
@@ -205,14 +217,17 @@
             </object>
           </div>                
           <script type='text/javascript'>                    
-              var divElement = document.getElementById('viz1583289531802');                   
+              var divElement = document.getElementById('viz1583390147278');                    
               var vizElement = divElement.getElementsByTagName('object')[0];                    
               if ( divElement.offsetWidth > 800 ) { 
-                  vizElement.style.width='700px';vizElement.style.height='627px';
+                  vizElement.style.width='850px';
+                  vizElement.style.height='777px';
               } else if ( divElement.offsetWidth > 500 ) { 
-                  vizElement.style.width='700px';vizElement.style.height='627px';
+                  vizElement.style.width='850px';
+                  vizElement.style.height='777px';
               } else { 
-                  vizElement.style.width='100%';vizElement.style.height='727px';
+                  vizElement.style.width='100%';
+                  vizElement.style.height='727px';
               }                     
               var scriptElement = document.createElement('script');                    
               scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
@@ -220,10 +235,12 @@
           </script>
         </div>
       </div>
+
+
     </div>
 
-    <script type="text/javascript" src="./main.js"></script>
-    <script src="./pie.js"></script>
-    <script src="./bar.js"></script>
+  <script type="text/javascript" src="./main.js"></script>
+  <script src="./pie.js"></script>
+  <script src="./bar.js"></script>
   </body>
 </html>

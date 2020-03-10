@@ -14,7 +14,7 @@ var EXECUTED = false;
 
 
 	executePie = function() {
-		$("#pie-defs-container").hide();
+		resetDef();
 		if (EXECUTED == false) {
 			pie = new d3pie("pie-chart", {
 				"header": {

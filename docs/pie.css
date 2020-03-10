@@ -27,13 +27,26 @@ text-align: center;
 }
 
 #pie-definition {
-border-bottom: 1px solid rgb(0, 0, 0);
-margin-bottom: 1vh;
-height: 14vh;
-padding-bottom: 1vh;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    margin-bottom: 1vh;
+    height: 20vh;
+    padding-bottom: 1vh;
+}
+
+#pie-definition-effects {
+    height: 16vh;
+    padding-bottom: 1vh;
+    margin-bottom: 1vh;
 }
 
 #pie-defs-header {
+    color: #850f04;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 0.5px solid #1A1A1A;
+}
+
+#pie-defs-effects-header {
     color: #850f04;
     padding-bottom: 20px;
     margin-bottom: 20px;

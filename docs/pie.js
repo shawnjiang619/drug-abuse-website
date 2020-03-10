@@ -1,7 +1,20 @@
 var pie;
 var EXECUTED = false;
 (function(){
+
+	var drugDef = {};
+
+	resetDef = function() {
+		$('#pie-defs-container').hide();
+		$('#pie-instr').show();
+	}
+
+	generateDef = function() {
+	}
+
+
 	executePie = function() {
+		resetDef();
 		if (EXECUTED == false) {
 			pie = new d3pie("pie-chart", {
 				"header": {
@@ -148,11 +161,30 @@ var EXECUTED = false;
 				},
 				"callbacks": {
 					"onClickSegment": function(info) {
-						console.log("click:", info);
+						var name = info.data.label.toLowerCase();
+						console.log("click:", info.data.label);
+						$('#pie-defs-container').show();
+						$("#pie-instr").hide();
+						$("#pie-definition").empty();
+						$("#pie-definition-effects").empty();
+						$("#pie-defs-header").empty();
+						$("#pie-defs-effects-header").empty();
+						$("#pie-defs-header").append(name.charAt(0).toUpperCase() + name.slice(1));
+						$("#pie-defs-effects-header").append("Effects")
+						$("#pie-definition").append("<span class='text-def'>" + drugDef[name]["how"] + "</span>");
+						$("#pie-definition-effects").append("<span class='text-def'>" + drugDef[name]["effects"] + "</span>")
 					}
 				}
 			});
 			EXECUTED = true;
+			d3.csv('https://raw.githubusercontent.com/UW-CSE442-WI20/FP-understanding-drug-abuse/master/static/definitions.csv').then(function(data) {
+				data.forEach(function(d) {
+					drugDef[d.name] = {};
+					drugDef[d.name]["how"] = d.how;
+					drugDef[d.name]["effects"] = d.effects;
+				});
+			});
+			resetDef();
 		}
 		
 	}

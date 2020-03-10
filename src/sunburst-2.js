@@ -1,0 +1,458 @@
+"use strict";
+var PIE_CANVAS_HEIGHT = $('.sunburst-chart-svg').height();
+var PIE_CANVAS_WIDTH = $('.sunburst-chart-svg').width();
+var PIE_RADIUS;
+var PIE_INNER_RADIUS;
+var CENTER_PIE_RADIUS;
+var executeSunburst;
+var pieViz;
+var zoomFlag = false;
+
+(function () {
+  // Constants
+  // =========
+
+  var CANVAS_CLASS_ID = ".sunburst-chart-svg";
+
+  // Breadcrumb dimensions: width, height, spacing, width of tip/tail.
+  // Change width to change length of each breadcrumb
+  var PIE_BREAD_DIM = {
+    WIDTH: 230, HEIGHT: 30, SPACING: 3, TAIL: 10
+  };
+
+  var PIE_TOTAL_COLOR = "#872121"; //757575
+
+  var COLOR_BREWER = {
+    "Total": PIE_TOTAL_COLOR,
+    "12": "#98FB98",
+    "13": "#90EE90",
+    "14": "#00FA9A",
+    "15": "#00FF7F",
+    "16": "#32CD32",
+    "17": "#3CB371",
+    "18": "#2E8B57",
+    "19": "#228B22",
+    "20": "#008000",
+    "21": "#006400",
+    "alcohol": "#405d98",
+    "marijuana": "#8c9dc1",
+    "cocaine": "#334a79",
+    "crack": "#26375b",
+    "heroin": "#6177b4",
+    "hallucinogen": "#4c6c99",
+    "inhalant": "#354b6b",
+    "painreliever": "#1e2b3d",
+    "oxycontin": "#3c4776",
+    "tranquilizer": "#837482",
+    "stimulant": "#5b515b",
+    "meth": "#c1b9c0",
+    "sedative": "#D0A3C1",
+  }
+
+  var NON_COLORS = [
+    "#bdd7e7", "#eff3ff","#cbc9e2", "#f2f0f7", "#fdbe85", "#feedde", "#c7e9c0", "#edf8e9", "#fbb4b9","#feebe2"
+  ];
+
+  // Initializing variables and canvas
+  // =================================
+
+  var pieFilters = [];
+  executeSunburst = function () {
+      // Canvas dimensions
+      PIE_RADIUS = Math.min(PIE_CANVAS_WIDTH, PIE_CANVAS_HEIGHT) / 2 - 10;
+
+      // Radius of inner circle when selecting two filters, 
+      // or the radius of the circle when selecting one filter
+      PIE_INNER_RADIUS = PIE_RADIUS * 49 / 60;
+
+      CENTER_PIE_RADIUS = PIE_RADIUS * 15 / 26;
+
+      createPieViz();
+  };
+
+  var createPieViz = function() { 
+      pieViz = d3.select(CANVAS_CLASS_ID).append("svg")
+      .attr("width", PIE_CANVAS_WIDTH)
+      .attr("height", PIE_CANVAS_HEIGHT)
+      .append("g")
+      .attr("id", "sunburst-container")
+      .attr("transform", "translate(" + PIE_CANVAS_WIDTH / 2 + ","
+                                      + PIE_CANVAS_HEIGHT / 2 + ")");
+
+      d3.text("https://raw.githubusercontent.com/UW-CSE442-WI20/FP-understanding-drug-abuse/master/static/sunburst-data.csv").then(function(text) {
+          console.log("Fetched");
+          var csv = d3.csvParseRows(text);
+          var json = buildHierarchy(csv);
+          createVisualization(json);
+      });                              
+      initializeBreadcrumbTrail();
+  };
+
+
+  // Take a 2-column CSV and transform it into a hierarchical structure suitable
+  // for a partition layout. The first column is a sequence of step names, from
+  // root to leaf, separated by hyphens. The second column is a count of how 
+  // often that sequence occurred.
+  function buildHierarchy(csv) {
+      var root = {"name": "Total", "children": []};
+      for (var i = 0; i < csv.length; i++) {
+      var sequence = csv[i][0];
+      var size = +csv[i][1];
+      if (isNaN(size)) { // e.g. if this is a header row
+      continue;
+      }
+      var parts = sequence.split("-");
+      var currentNode = root;
+      for (var j = 0; j < parts.length; j++) {
+      var children = currentNode["children"];
+      var nodeName = parts[j];
+      var childNode;
+      if (j + 1 < parts.length) {
+      // Not yet at the end of the sequence; move down the tree.
+      var foundChild = false;
+      for (var k = 0; k < children.length; k++) {
+          if (children[k]["name"] == nodeName) {
+          childNode = children[k];
+          foundChild = true;
+          break;
+          }
+      }
+      // If we don't already have a child node for this branch, create it.
+      if (!foundChild) {
+          childNode = {"name": nodeName, "children": []};
+          children.push(childNode);
+      }
+      currentNode = childNode;
+      } else {
+      // Reached the end of the sequence; create a leaf node.
+      childNode = {"name": nodeName, "size": size};
+      children.push(childNode);
+      }
+      }
+      }
+      return root;
+  };
+
+
+
+  // Functions for creating sunburst
+  // ==============================
+  var createVisualization = function(data) { 
+    var radius = pieFilters.length == 0 ?
+                  CENTER_PIE_RADIUS :
+                  pieFilters.length == 1 ?
+                    PIE_INNER_RADIUS :
+                    PIE_RADIUS;
+    var x = d3.scaleLinear().range([0, 2 * Math.PI]);
+    var y = d3.scaleSqrt().range([0, radius]);
+    var partition = d3.partition();
+
+    var arc = d3.arc()
+      .startAngle(function(d) {
+        return Math.max(0, Math.min(2 * Math.PI, x(d.x0)));
+      })
+      .endAngle(function (d) {
+        return Math.max(0, Math.min(2 * Math.PI, x(d.x1)));
+      })
+      .innerRadius(function (d) {
+        return Math.max(0, y(d.y0));
+      })
+      .outerRadius(function(d) {
+        return Math.max(0, y(d.y1));
+      });
+
+    var root = d3.hierarchy(data)
+                .sum(function(d) { return d.size; })
+                .sort(function(a, b) { return b.value - a.value; });
+    var nodes = partition(root).descendants();
+    var legendDomain = [];
+    var legendRange = [];
+    var path = pieViz.selectAll("path")
+        .data(nodes)
+        .enter().append("path")
+        .attr("d", arc)
+        .attr("class", "slice")
+        .attr("id", function(d) {
+            return "pie" + d.data.name.replace(new RegExp("[\\.|\\s\\+|/]", "g"),"-");
+        })
+        .style("stroke", "fff")
+        .style("fill", function (d, i) { 
+            var color = getColor(d, i);
+            legendDomain.push(d.data.name);
+            legendRange.push(color);
+        
+            return color;
+        })
+        .on("click", clickPie)
+        .on("mouseover", mouseoverPie)
+        .on("mouseleave", mouseleavePie)
+        .append("title")
+            .text(function(d) {
+            if (pieFilters.length == 2 && d.depth == 1) {
+                return "Click to zoom in";
+            }
+        });
+
+    drawSunburstLegend(legendDomain, legendRange);
+
+    function drawSunburstLegend(legendDomain, legendRange) {
+      var ordinal = d3.scaleOrdinal()
+        .domain(legendDomain)
+        .range(legendRange);
+
+      var legendOrdinal = d3.legendColor()
+        .shape("path", d3.symbol().type(d3.symbolSquare).size(150)())
+        .shapePadding(10)
+        .title("Legend")
+        .labelWrap(100)
+        .scale(ordinal);
+
+      pieViz.append("g")
+        .attr("class", "legendPie")
+        .attr("transform", "translate(" + (PIE_RADIUS  + 30) + ",-" + (PIE_RADIUS - 30) + ")")
+        .call(legendOrdinal)
+        .selectAll("text")
+        .style("font-size","1.2em")
+        .style("fill", "white");
+    }
+
+    function drawLegend(legendDomain, legendRange) {
+      // Dimensions of legend item: width, height, spacing, radius of rounded rect.
+      var li = {
+        w: 130, h: 20, s: 3, r: 3
+      };
+    
+      var legend = d3.select("legendPie").append("svg:svg")
+          .attr("width", li.w)
+          .attr("height", d3.keys(colors).length * (li.h + li.s));
+    
+      var g = legend.selectAll("g")
+          .data(d3.entries(colors))
+          .enter().append("svg:g")
+          .attr("transform", function(d, i) {
+                  return "translate(0," + i * (li.h) + ")";
+                });
+    
+      // g.append("svg:rect")
+      //     .attr("rx", li.r)
+      //     .attr("ry", li.r)
+      //     .attr("width", li.w)
+      //     .attr("height", li.h)
+      //     .style("fill", function(d) { return d.value; });
+    
+      g.append("svg:text")
+          .attr("dy", "1em")
+          .attr("text-anchor", "left")
+          .style("fill", function(d) { return d.value; })
+          .text(function(d) { return d.key; })
+    }
+    
+    // Add the mouseleave handler to the bounding circle.
+    //pieViz.selectAll(".slice").on("mouseleave", mouseleavePie);
+
+    function clickPie(d) {
+      var legendDomain = [];
+      var legendRange = [];
+
+      legendDomain.push("Total");
+      legendRange.push(PIE_TOTAL_COLOR);
+
+      if (d.depth != 2) {
+        zoomFlag = d.depth == 0 ? false : true;
+        $(".slice").css("cursor", "auto");
+        pieViz.select(".legendPie").remove();
+        pieViz.transition()
+          .duration(750)
+          .tween("scale", function () {
+            var xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+              yd = d3.interpolate(y.domain(), [d.y0, 1]),
+              yr = d3.interpolate(y.range(), [d.y0 ? 20 : 0, radius]);
+
+            return function (t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); };
+          })
+          .selectAll("path")
+          .each(function(d1, i) {
+              if (d.depth == 0) {
+                if (d1.depth != 0) {
+                  var color = getColor(d1, i);
+                  legendDomain.push(d1.data.name);
+                  legendRange.push(color);
+                }
+              } else if ((d1.depth == 2 && d1.parent.data.name === d.data.name)
+                        || (d1.depth == 1 && d1.data.name === d.data.name)) {
+                var color = getColor(d1, i);
+                legendDomain.push(d1.data.name);
+                legendRange.push(color);
+              }
+          })
+          .attrTween("d", function (d) { return function () { return arc(d); }; })
+          .select("title")
+            .text(function(d) {
+              if (zoomFlag && d.depth == 0) {
+                return "Click to zoom out";
+              }
+
+              if (!zoomFlag && d.depth == 1) {
+                return "Click to zoom in";
+              }
+            });
+
+          if ($(".legendPie").length <= 0) {
+            drawSunburstLegend(legendDomain, legendRange);
+          }
+      }
+    }
+
+  };
+
+  function getColor(d, i) {
+    return COLOR_BREWER[d.data.name];
+  }
+
+  // Functions for creating trail sequence
+  // =====================================
+
+  function initializeBreadcrumbTrail() {
+    // Add the svg area.
+    var trail = d3.select("#pie-sequence").append("svg:svg")
+      .attr("width", PIE_CANVAS_WIDTH)
+      .attr("height", 50)
+      .attr("id", "trail");
+
+    // Add the label at the end, for the percentage.
+    trail.append("svg:text")
+      .attr("id", "endlabel")
+      .attr("class", "heavy")
+      .style("fill", "black");
+  }
+
+  function mouseoverPie(d) {
+    if (d.depth == 0) {
+      mouseleavePie(d);
+      return;
+    }
+
+    if (!zoomFlag) {
+      if (!zoomFlag && d.depth == 1 && pieFilters.length == 2) {
+        $("#pie" + d.data.name.replace(new RegExp("[\\.|\\s\\+|/]", "g"),"-")).css("cursor", "pointer");
+      }
+    }
+
+    var percentage = (100 * d.value / 36252).toPrecision(3);
+    var percentageString = percentage + "%";
+    if (percentage < 0.1) {
+      percentageString = "< 0.1%";
+    }
+
+    d3.select("#percentage")
+      .text(percentageString);
+
+    d3.select("#explanation")
+      .style("visibility", "");
+
+    var sequenceArray = d.ancestors().reverse();
+    sequenceArray.shift(); // remove root node from the array
+    updateBreadcrumbs(sequenceArray, percentageString);
+
+    // Fade all the segments.
+    d3.selectAll(".slice")
+      .style("opacity", 0.3);
+
+    // Then highlight only those that are an ancestor of the current segment.
+    pieViz.selectAll(".slice")
+      .filter(function (node) {
+        return (sequenceArray.indexOf(node) >= 0);
+      })
+      .style("opacity", 1);
+  }
+
+  function mouseleavePie(d) {
+    $(".slice").css("cursor", "auto");
+    if (zoomFlag) {
+      $("#pieTotal").css("cursor", "pointer");
+    }
+    // Hide the breadcrumb trail
+    d3.select("#trail")
+      .style("visibility", "hidden");
+
+    // Deactivate all segments during transition.
+    //d3.selectAll(".slice").on("mouseover", null);
+
+    // Transition each segment to full opacity and then reactivate it.
+    d3.selectAll(".slice")
+      .style("opacity", 1)
+      .on("end", function () {
+        d3.select(this).on("mouseover", mouseoverPie);
+      });
+
+    d3.select("#explanation")
+      .style("visibility", "hidden");
+  }
+
+  // Generate a string that describes the points of a breadcrumb polygon.
+  function breadcrumbPoints(d, i) {
+    var points = [];
+    points.push("0,0");
+    points.push(PIE_BREAD_DIM.WIDTH + ",0");
+    points.push(PIE_BREAD_DIM.WIDTH + PIE_BREAD_DIM.TAIL + "," + (PIE_BREAD_DIM.HEIGHT / 2));
+    points.push(PIE_BREAD_DIM.WIDTH + "," + PIE_BREAD_DIM.HEIGHT);
+    points.push("0," + PIE_BREAD_DIM.HEIGHT);
+
+    // Leftmost breadcrumb; don't include 6th vertex.
+    if (i > 0) {
+      points.push(PIE_BREAD_DIM.TAIL + "," + (PIE_BREAD_DIM.HEIGHT / 2));
+    }
+
+    return points.join(" ");
+  }
+
+  // Update the breadcrumb trail to show the current sequence and percentage.
+  function updateBreadcrumbs(nodeArray, percentageString) {
+
+    // Data join; key function combines name and depth (= position in sequence).
+    var trail = d3.select("#trail")
+      .selectAll("g")
+      .data(nodeArray, function (d) { return d.data.name + d.depth; });
+
+    // Remove exiting nodes.
+    trail.exit().remove();
+
+    // Add breadcrumb and label for entering nodes.
+    var entering = trail.enter().append("svg:g");
+
+    entering.append("svg:polygon")
+      .attr("points", breadcrumbPoints)
+      .style("fill", function (d) { return getBreadCrumbColor(d);} );
+
+    entering.append("svg:text")
+      .attr("x", (PIE_BREAD_DIM.WIDTH + PIE_BREAD_DIM.TAIL) / 2)
+      .attr("y", PIE_BREAD_DIM.HEIGHT / 2)
+      .attr("dy", "0.35em")
+      .attr("text-anchor", "middle")
+      .text(function (d) { return d.data.name; })
+      .attr("class", function(d) {
+        return NON_COLORS.includes(getColor(d)) ? "black" : "white";
+      });
+
+    // Merge enter and update selections; set position for all nodes.
+    entering.merge(trail).attr("transform", function (d, i) {
+      return "translate(" + i * (PIE_BREAD_DIM.WIDTH + PIE_BREAD_DIM.SPACING) + ", 0)";
+    });
+
+    // Now move and update the percentage at the end.
+    d3.select("#trail").select("#endlabel")
+      .attr("x", (nodeArray.length + 0.5) * (PIE_BREAD_DIM.WIDTH + PIE_BREAD_DIM.SPACING) - 75)
+      .attr("y", PIE_BREAD_DIM.HEIGHT / 2 - 5)
+      .attr("dy", "0.75em")
+      .attr("text-anchor", "middle")
+      .text(percentageString);
+    
+    // Make the breadcrumb trail visible, if it's hidden.
+    d3.select("#trail")
+      .style("visibility", "");
+  }
+
+  function getBreadCrumbColor(d) {
+    return COLOR_BREWER[d.data.name];
+  }
+}());

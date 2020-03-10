@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Understanding Drug Abuse</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
+
     <script src="./d3pie.min.js"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
@@ -22,6 +25,7 @@
     <link type="text/css" href="./pie.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./bar.css">
     <link rel="stylesheet" type="text/css" href="./map.css">
+    <link rel="stylesheet" tpye="text/css" href="./sunburst.css">
     <link rel="stylesheet" href="./num.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -139,9 +143,26 @@
 
       <div class="section sunburst">
         <div id="sunburst-container" class="section-container">
+
           <div class="section-intro">
             <h1>Drug Use By Age</h1>
             <h5> <br><span class="dir">TODO: Sunburst Chart</span></br> </h5>
+          </div>
+
+          <div id = "sunburst-wrapper" class="viz-wrapper">
+            <div id="sunburst-chart-content" class="viz-content">
+              <div id="pie-sequence"></div>
+              <div class="sunburst-chart-svg">
+              </div>
+            </div>
+            <!-- <div id = "sunburst-content">
+              <div id = "sequence"></div>
+              <div id = "sunburst-chart"></div>
+              <div id="explanation" style="visibility: hidden;">
+                <span id="percentage"></span><br/>
+                of visits begin with this sequence of pages
+              </div>
+            </div>  -->
           </div>
         </div>
       </div>
@@ -304,5 +325,6 @@
   <script type="text/javascript" src="./main.js"></script>
   <script src="./pie.js"></script>
   <script src="./bar.js"></script>
+  <script src="./sunburst-2.js"></script>
   </body>
 </html>

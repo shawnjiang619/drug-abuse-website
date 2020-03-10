@@ -23,6 +23,10 @@ body {
     color: #1A1A1A;
 }
 
+.text-def {
+    font-size: 1.55em;  line-height: 1.30em; font-weight: 400;
+}
+
 .section {
     background-color: #cccccc;
     background-image: url("./img/concrete-wall.png");

@@ -17,4 +17,9 @@
             }
         }
     });
+
+    // Things that need to be loaded when website is loaded
+    window.onload = function() {
+        resetDef();
+    }
 }());

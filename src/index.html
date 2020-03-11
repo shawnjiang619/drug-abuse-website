@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="./num.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- JavaScript -->
     <!-- <script src="./pie.js"></script> -->
 
@@ -42,11 +41,11 @@
 
       <div class="section text">
         <div id="intro-text-wrapper" class = text-wrapper>
-          <h2 style="text-align:center; padding-left: 50px; padding-right: 50px; line-height: 2.5;">
+          <h2 style="text-align:left; padding-left: 150px; padding-right: 150px; line-height: 2;">
             About <span style="color:#850f04">38%</span> of of adults in 2017 battled an illicit drug use disorder and
             more than <span style="color:#850f04">$740 billion</span> was lost anaually in workplace productivity, healthcare expenses, and crime-related costs.
           </h2>
-          <h2 style="text-align:center; padding-left: 50px; padding-right: 50px; line-height: 2.5">
+          <h2 style="text-align:left; padding-top: 40px; padding-left: 150px; padding-right: 150px; line-height: 2;">
             This project aims to explore various aspects on drug use and drug abuse and trys to improve our understanding of this issues and help improve government policy
           </h2>
         </div>
@@ -162,7 +161,7 @@
       <div class="section text">
         <div id="map-text-wrapper" class = text-wrapper>
           <p class="trans-text">
-            So, in which country does drug abuse happen more often?
+            So, in which country does drug use happen more often?
           </p>
         </div>
         <div id="map-img-wrapper" style="vertical-align:middle; text-align:center">
@@ -210,21 +209,109 @@
           </div>
       </div>
 
-      <div class="section treemap">
-        <div id="treemap-container" class="section-container">
-          <div class="section-intro">
-            <h1>Some Treemap Viz</h1>
-            <h5> <br><span class="dir">TODO: Treemap Chart</span></br> </h5>
-          </div>
+      <div class="section text">
+        <div id="radar-text-wrapper" class = text-wrapper>
+          <p class="trans-text">
+            Results of drug overdose
+          </p>
         </div>
-      </div>
+        <div id="result-img-wrapper" style="vertical-align:middle; text-align:center">
+          <!-- <img id="crime" class="icon-img" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQzOC4zMiA0MzguMzIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQzOC4zMiA0MzguMzI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8Zz4KCTxwYXRoIGQ9Ik00MjcuNzQzLDE1My4zMDFMNDI3Ljc0MywxNTMuMzAxYy0xNC4wNzktMTQuMDc5LTM2Ljk4Ny0xNC4wNzktNTEuMDY1LDBsLTI2LjEzMSwyNi4xM2wtNDQuMDIxLTQ0LjAyMSAgIGMxNC44LTAuMTQzLDI5LjI4OC01Ljk5MSw0MC4xNS0xNi44NTRjMTAuODctMTAuODcsMTYuODU2LTI1LjMyMiwxNi44NTYtNDAuNjk0YzAtMTUuMzczLTUuOTg2LTI5LjgyNS0xNi44NTYtNDAuNjk1ICAgYy0yMi40MzgtMjIuNDM5LTU4Ljk0OS0yMi40MzgtODEuMzg5LDBjLTEwLjg2MiwxMC44NjQtMTYuNzExLDI1LjM1Mi0xNi44NTQsNDAuMTUxbC00OS4zNTMtNDkuMzUzICAgYy0yMC41MzQtMjAuNTM0LTUzLjk0Ni0yMC41MzgtNzQuNDc5LTAuMDA5Yy0xMy4wMTYsMTMuMDEyLTI3LjU0NiwyNy41MzktMzguODA1LDM4Ljc5Yy02LjM1Myw2LjM0OS05Ljg0MywxNC43OS05LjgyOSwyMy43NjggICBjMC4wMTQsOC45NzksMy41MzYsMTcuNDM4LDkuOTE4LDIzLjgybDAuNDc5LDAuNDhjNi4xOSw2LjE5LDE0LjQyLDkuNTk4LDIzLjE3Myw5LjU5OGMwLjAwNCwwLDAuMDA3LDAsMC4wMSwwICAgYzguNzU3LTAuMDAyLDE2Ljk4OC0zLjQxNiwyMy4xNzgtOS42MTFsMjIuMTA0LTIyLjEyOGwzMC4zNTgsMzAuMzU4bC0zOS42MiwzOS42MjFINTEuNzI1Yy0yNy4wMzYsMC00OS4wMzYsMjEuOTkxLTQ5LjA0Miw0OS4wMjEgICBjLTAuMDA1LDE5LjQ2Ni0wLjAxNCw0MS45NDQtMC4wMjksNTkuMDE4Yy0wLjAwOCw4LjkxOSwzLjQ2NCwxNy4yOTcsOS43NzUsMjMuNTkyYzYuMzEzLDYuMjk1LDE0LjcyNCw5Ljc2MiwyMy42ODUsOS43NjJoMC42NzYgICBjOC43MDIsMCwxNi44ODItMy4zOTEsMjMuMDMxLTkuNTQ5czkuNTI5LTE0LjM0MSw5LjUxOC0yMy4wNDRsLTAuMDU0LTM5LjY2aDc2LjA0NEwxMC4wNTMsMzY3LjA2OCAgIGMtMTMuNDA0LDEzLjQwNC0xMy40MDQsMzUuMjE1LDAsNDguNjJjNi40OTMsNi40OTMsMTUuMTI3LDEwLjA3LDI0LjMxLDEwLjA3YzkuMTg0LDAsMTcuODE2LTMuNTc2LDI0LjMxLTEwLjA3bDEyNS44MjMtMTI1LjgyMyAgIGM1LjAyNSwzLjMzMSwxMC45NzQsNS4xNzIsMTcuMDgzLDUuMTcyYzYuODI1LDAsMTMuMjgtMi4xODcsMTguNjExLTYuMjM4YzYuMDYxLDIuNzgzLDEyLjY3OCw0LjIzOCwxOS4zODksNC4yMzggICBjMjUuNjQxLDAsNDYuNS0yMC44Niw0Ni41LTQ2LjVjMC0xNS41MTYtNy42MjItMjkuNjcyLTIwLjAyMi0zOC4yMzNsNy4yOTgtNy4yOThsNDYuNjk1LDQ2LjY5NSAgIGM4LjU5Niw4LjU5NiwyMC4wMjMsMTMuMzMsMzIuMTgsMTMuMzNzMjMuNTg0LTQuNzM0LDMyLjE3OS0xMy4zM2w0My4zMzUtNDMuMzMzYzYuODE5LTYuODIsMTAuNTc2LTE1Ljg4OCwxMC41NzYtMjUuNTMzICAgQzQzOC4zMiwxNjkuMTg5LDQzNC41NjMsMTYwLjEyMSw0MjcuNzQzLDE1My4zMDF6IE0yNzMuMDc5LDI0Ni41MzdjMCwxOC40NzItMTUuMDI4LDMzLjUtMzMuNSwzMy41ICAgYy01Ljk5NywwLTExLjg4OS0xLjYxMi0xNy4wMzgtNC42NjJjLTIuNjA0LTEuNTQzLTUuOTI1LTEuMDgzLTguMDE0LDEuMTAzYy0zLjQyMywzLjU4NS04LjAyMSw1LjU1OS0xMi45NDgsNS41NTkgICBjLTIuNjc1LDAtNS4yMzctMC41OTEtNy41NzItMS42ODNsNjIuNjQtNjIuNjRDMjY2Ljc1NywyMjMuNjg0LDI3My4wNzksMjM0LjU0NSwyNzMuMDc5LDI0Ni41Mzd6IE00MTguNTUxLDE5NS4xNzVsLTQzLjMzNSw0My4zMzMgICBjLTYuMTQsNi4xNC0xNC4zMDMsOS41MjItMjIuOTg2LDkuNTIycy0xNi44NDgtMy4zODItMjIuOTg4LTkuNTIybC01MS4yOS01MS4yOTFjLTIuNTM5LTIuNTM4LTYuNjU1LTIuNTM4LTkuMTkyLDBMNDkuNDgsNDA2LjQ5NSAgIGMtNC4wMzcsNC4wMzgtOS40MDYsNi4yNjItMTUuMTE3LDYuMjYyYy01LjcxLDAtMTEuMDc5LTIuMjI0LTE1LjExNi02LjI2MmMtOC4zMzYtOC4zMzYtOC4zMzYtMjEuODk5LDAtMzAuMjM1bDE0Ni4zNy0xNDYuMzcxICAgYzEuODU5LTEuODU5LDIuNDE2LTQuNjU1LDEuNDA5LTcuMDgzYy0xLjAwNi0yLjQyOS0zLjM3Ni00LjAxMy02LjAwNS00LjAxM0g2Mi43NzZjLTEuNzI2LDAtMy4zOCwwLjY4Ni00LjYsMS45MDcgICBjLTEuMjE5LDEuMjIxLTEuOTAyLDIuODc2LTEuOSw0LjYwMmwwLjA2Myw0Ni4xNjljMC4wMDcsNS4yMjctMi4wMjIsMTAuMTQyLTUuNzE2LDEzLjg0cy04LjYwNiw1LjczNS0xMy44MzMsNS43MzVoLTAuNjc2ICAgYy01LjQ5NSwwLTEwLjY0Ni0yLjExOS0xNC41MDUtNS45NjZjLTMuODQ1LTMuODM1LTUuOTYtOC45NC01Ljk1NS0xNC4zNzZjMC4wMTYtMTcuMDc2LDAuMDI0LTM5LjU1OCwwLjAyOS01OS4wMjcgICBjMC4wMDQtMTkuODYzLDE2LjE3My0zNi4wMjMsMzYuMDQyLTM2LjAyM2g5Ni41MzdjMS43MjQsMCwzLjM3Ny0wLjY4NSw0LjU5Ny0xLjkwNGw0Ni4xMi00Ni4xMjFjMi41MzgtMi41MzksMi41MzgtNi42NTQsMC05LjE5MiAgIGwtMzkuNTUzLTM5LjU1M2MtMS4yMi0xLjIxOS0yLjg3NC0xLjkwNC00LjU5OS0xLjkwNHMtMy4zNzgsMC42ODYtNC41OTcsMS45MDZsLTI2LjcwMSwyNi43MjkgICBjLTMuNzM0LDMuNzM4LTguNyw1Ljc5Ny0xMy45ODQsNS43OTljLTAuMDAxLDAtMC4wMDMsMC0wLjAwNSwwYy01LjI4MSwwLTEwLjI0Ni0yLjA1Ni0xMy45ODItNS43OTJsLTAuNDc5LTAuNDggICBjLTMuOTMyLTMuOTMxLTYuMTAxLTkuMTMzLTYuMTA5LTE0LjY0N2MtMC4wMDktNS40OTYsMi4xMjktMTAuNjY1LDYuMDE5LTE0LjU1MmMxMS4yNTktMTEuMjUxLDI1Ljc5MS0yNS43NzksMzguODA3LTM4Ljc5MiAgIGMxNS40NjUtMTUuNDYxLDQwLjYyOC0xNS40NTksNTYuMDk1LDAuMDA4bDYzLjk4Niw2My45ODdjMi4xNzgsMi4xNzcsNS41ODQsMi41MjcsOC4xNTgsMC44NDIgICBjMi41NzUtMS42ODcsMy42MTQtNC45NDgsMi40ODgtNy44MTRjLTYuNDgzLTE2LjUxMS0yLjU3NS0zNS4yNzksOS45NTgtNDcuODEzYzE3LjM3LTE3LjM2OSw0NS42MzMtMTcuMzcxLDYzLjAwNSwwICAgYzE3LjM3LDE3LjM3LDE3LjM3LDQ1LjYzNC0wLjAwMSw2My4wMDRjLTEyLjUzMiwxMi41MzQtMzEuMzAxLDE2LjQ0My00Ny44MTMsOS45NThjLTIuODYzLTEuMTI0LTYuMTI4LTAuMDg2LTcuODEzLDIuNDg5ICAgYy0xLjY4NywyLjU3NS0xLjMzNiw1Ljk4LDAuODQyLDguMTU3bDYzLjI1LDYzLjI1MWMyLjUzOCwyLjUzOSw2LjY1NCwyLjUzOSw5LjE5MiwwbDMwLjcyOC0zMC43MjYgICBjOS4wMTEtOS4wMTIsMjMuNjcyLTkuMDEsMzIuNjgxLDBoMC4wMDFjNC4zNjQsNC4zNjUsNi43NjksMTAuMTY4LDYuNzY5LDE2LjM0MUM0MjUuMzIsMTg1LjAwNyw0MjIuOTE2LDE5MC44MTEsNDE4LjU1MSwxOTUuMTc1eiIgZmlsbD0iIzAwMDAwMCIvPgoJPHBhdGggZD0iTTIyMy41NzQsMzE1LjEzMmMtMTAuNzUyLDAtMTkuNSw4Ljc0OC0xOS41LDE5LjVzOC43NDgsMTkuNSwxOS41LDE5LjVzMTkuNS04Ljc0OCwxOS41LTE5LjUgICBTMjM0LjMyNiwzMTUuMTMyLDIyMy41NzQsMzE1LjEzMnogTTIyMy41NzQsMzQxLjEzMmMtMy41ODQsMC02LjUtMi45MTYtNi41LTYuNXMyLjkxNi02LjUsNi41LTYuNXM2LjUsMi45MTYsNi41LDYuNSAgIFMyMjcuMTU4LDM0MS4xMzIsMjIzLjU3NCwzNDEuMTMyeiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" /> -->
+        </div>
+    </div>
 
       <div class="section crime">
         <div id="crime-container" class="section-container">
           <div class="section-intro">
-            <h1>Crime and Drugs</h1>
-            <h5> <br><span class="dir">TODO: Crime Chart</span></br> </h5>
+            <h1>Drug Type As a Factor of Drug-Related Crimes</h1>
+            <!-- <h5> <br><span class="dir">TODO: Crime Chart</span></br> </h5> -->
           </div>
+          <div id="radarchart" class = "viz-wrapper">
+            <div id = "radar-chart-content" style = "flex: 0 0 60%;
+            display: flex;
+            flex-flow: column;" >
+              <canvas id="myChart"></canvas>
+            </div>
+            <div id="radartext" style = "flex: 0 0 40%;
+                height: 60vh;
+                position: relative;">
+              <h4 style="line-height: 2">Click/Unclick the legend to filter out/filter specific years.
+              </h4>
+              <h4 style="line-height: 2">
+                  Some research studies have found that a lot of acquisitive crime (stealing) is committed by dependent users of heroin and crack cocaine trying to pay for their drugs.
+              </h4>
+              <h4 style="line-height: 2">
+                  Some show a high proportion of people arrested for a range of offenses testing positive for drug use.
+                  It has been suggested that one third to over a half of all acquisitive crime is related to illegal drug use.
+              </h4>
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+            <script>
+            var radarctx = document.getElementById('myChart').getContext('2d');
+            var radarchart = new Chart(radarctx, {
+                // The type of chart we want to create
+                type: 'radar',
+
+                // The data for our dataset
+                data: {
+                    labels: ["Amphetamine", "Cocaine", "Heroin", "Opioids", "Other drugs"],
+                    datasets: [{
+                        label: "1996",
+                        backgroundColor: 'rgba(51, 153, 51, 0.1)',
+                        borderColor: 'rgb(51, 153, 51)',
+                        data: [1017, 11478, 3287, 9214, 5730],
+                    }, {
+                        label: "1997",
+                        backgroundColor: 'rgba(255, 153, 51, 0.1)',
+                        borderColor: 'rgb(255, 153, 51)',
+                        data: [1742, 11468, 3235, 8526, 5957],
+                    }, {
+                        label: "1998",
+                        backgroundColor: 'rgba(102, 153, 255, 0.1)',
+                        borderColor: 'rgb(102, 153, 255)',
+                        data: [1356, 12183, 4323, 8762, 6509],
+                    }, {
+                        label: "1999",
+                        backgroundColor: 'rgba(179, 0, 0, 0.1)',
+                        borderColor: 'rgb(179, 0, 0)',
+                        data: [1592, 11963, 4577, 10472, 6845],
+                    }, {
+                        label: "2000",
+                        backgroundColor: 'rgba(37, 72, 142, 0.1)',
+                        borderColor: 'rgb(37, 72, 142)',
+                        data: [2074, 12812, 4691, 10130, 7736],
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                    }
+                }
+            });
+            </script>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section text">
+        <div id="death-text-wrapper" class = text-wrapper>
+          <p class="trans-text">
+            death intro
+          </p>
+
+        </div>
+        <div id="weedhead-img-wrapper" style="vertical-align:middle; text-align:center">
+          <img id="skeleton" class="icon-img" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIuNDE4IDUxMi40MTgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIuNDE4IDUxMi40MTgiIHdpZHRoPSI1MTJweCI+PGcgaWQ9IlhNTElEXzIzMDZfIj48ZyBpZD0iWE1MSURfMTA4OF8iPjxwYXRoIGlkPSJYTUxJRF8xMTE3XyIgZD0ibTMxNy43MjUgMzA2LjM1OWgxNy41MjRjMjYuNjU3IDAgNDguMzQ1LTIxLjY4OCA0OC4zNDUtNDguMzQ2cy0yMS42ODgtNDguMzQ2LTQ4LjM0NS00OC4zNDZoLTE3LjUyNGMtMjYuNjU4IDAtNDguMzQ2IDIxLjY4OC00OC4zNDYgNDguMzQ2czIxLjY4OCA0OC4zNDYgNDguMzQ2IDQ4LjM0NnptMC03Ni42OTJoMTcuNTI0YzE1LjYyOSAwIDI4LjM0NSAxMi43MTYgMjguMzQ1IDI4LjM0NnMtMTIuNzE2IDI4LjM0Ni0yOC4zNDUgMjguMzQ2aC0xNy41MjRjLTE1LjYzIDAtMjguMzQ2LTEyLjcxNi0yOC4zNDYtMjguMzQ2czEyLjcxNi0yOC4zNDYgMjguMzQ2LTI4LjM0NnoiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBpZD0iWE1MSURfMTEyNV8iIGQ9Im0xNzcuNzgxIDIwOS42NjdjLTI2LjY1OCAwLTQ4LjM0NiAyMS42ODgtNDguMzQ2IDQ4LjM0NnMyMS42ODggNDguMzQ2IDQ4LjM0NiA0OC4zNDZoMTcuNTI0YzI2LjY1OCAwIDQ4LjM0Ni0yMS42ODggNDguMzQ2LTQ4LjM0NnMtMjEuNjg4LTQ4LjM0Ni00OC4zNDYtNDguMzQ2em00NS44NyA0OC4zNDZjMCAxNS42My0xMi43MTYgMjguMzQ2LTI4LjM0NiAyOC4zNDZoLTE3LjUyNGMtMTUuNjMgMC0yOC4zNDYtMTIuNzE2LTI4LjM0Ni0yOC4zNDZzMTIuNzE2LTI4LjM0NiAyOC4zNDYtMjguMzQ2aDE3LjUyNGMxNS42MzEgMCAyOC4zNDYgMTIuNzE2IDI4LjM0NiAyOC4zNDZ6IiBmaWxsPSIjMDAwMDAwIi8+PHBhdGggaWQ9IlhNTElEXzExMjhfIiBkPSJtMjU2LjUxNSAzMTUuMjc1Yy0xMy44NDQgMC0yNS43NDcgOS40MDYtMjguOTQ2IDIyLjg3NGwtMy43MSAxNS42MDljLTEuNzM2IDcuMzA0LS4wNjMgMTQuODcyIDQuNTkyIDIwLjc2MyA0LjY1NCA1Ljg5MSAxMS42MjkgOS4yNjkgMTkuMTM3IDkuMjY5aDE3Ljg1NmM3LjUwNyAwIDE0LjQ4MS0zLjM3OCAxOS4xMzYtOS4yNjggNC42NTUtNS44OTEgNi4zMjktMTMuNDU4IDQuNTkzLTIwLjc2NGwtMy43MS0xNS42MDljLTMuMjAyLTEzLjQ2OC0xNS4xMDUtMjIuODc0LTI4Ljk0OC0yMi44NzR6bTEyLjM3MyA0Ni44NDZjLS40OTIuNjIzLTEuNTk1IDEuNjY4LTMuNDQ0IDEuNjY4aC0xNy44NTZjLTEuODUxIDAtMi45NTItMS4wNDUtMy40NDQtMS42NjgtLjQ5My0uNjIzLTEuMjU1LTEuOTM4LS44MjctMy43MzhsMy43MTEtMTUuNjFjMS4wNDktNC40MTUgNC45NS03LjQ5OCA5LjQ4OC03LjQ5OHM4LjQ0IDMuMDg0IDkuNDkgNy40OTlsMy43MDkgMTUuNjA4Yy40MjggMS44MDItLjMzNSAzLjExNi0uODI3IDMuNzM5eiIgZmlsbD0iIzAwMDAwMCIvPjxwYXRoIGlkPSJYTUxJRF8xMTMzXyIgZD0ibTQzOC45MzIgMzg3LjM5Ny0yMS45MDEtMjEuOTAyYzE2LjA3OC0xMy45OCAyNi4yNzItMzQuNTYgMjYuMjcyLTU3LjQ4OCAwLTE1LjI4OC00LjQ0NS0yOS44NTQtMTIuOTAxLTQyLjQxNiA3Ljg5MS0zOS42MzEgMi4xMjQtODAuMTE1LTE2LjM0OC0xMTUuNjlsMjQuODcyLTI0Ljg3MmM3LjYzOSA0Ljk2MSAxNi41NTMgNy42MjEgMjUuODc2IDcuNjIxIDEyLjcyNiAwIDI0LjY4OS00Ljk1NSAzMy42ODgtMTMuOTUzIDE4LjU3My0xOC41NzUgMTguNTczLTQ4Ljc5OS0uMDAxLTY3LjM3Mi02LjY5NC02LjY5Ni0xNS4wNjQtMTEuMTYxLTI0LjE2OS0xMi45OTgtMS44MzgtOS4xMDQtNi4zMDItMTcuNDc0LTEyLjk5Ny0yNC4xNy04Ljk5OC04Ljk5OC0yMC45NjItMTMuOTUzLTMzLjY4Ny0xMy45NTMtMTIuNzI2IDAtMjQuNjg5IDQuOTU1LTMzLjY4NyAxMy45NTNzLTEzLjk1MyAyMC45NjItMTMuOTUzIDMzLjY4N2MwIDkuMzIzIDIuNjYgMTguMjM3IDcuNjIxIDI1Ljg3NmwtMTkuNjQ1IDE5LjY0NWMtMTguNjU2LTE1LjEwNC00MC4zMDEtMjYuMzIzLTYzLjg1NS0zMi44MTMtNS4zMTktMS40NjctMTAuODMgMS42NTktMTIuMjk3IDYuOTg0LTEuNDY3IDUuMzI0IDEuNjYgMTAuODMgNi45ODQgMTIuMjk3IDgwLjc4MSAyMi4yNTggMTI5LjYwMyAxMDMuODcxIDExMS4xNDUgMTg1LjgwMi0uNjUgMi44OS4wMTQgNS45MjEgMS44MTMgOC4yNzMgNy41NSA5Ljg2OCAxMS41NDEgMjEuNjU5IDExLjU0MSAzNC4wOTkgMCAzMC45ODUtMjUuMjA4IDU2LjE5My01Ni4xOTIgNTYuMTkzaC0xMS45MjNjLTUuNTIyIDAtMTAgNC40NzgtMTAgMTB2NDkuMzM2YzAgOC4wODgtNi41OCAxNC42NjgtMTQuNjY4IDE0LjY2OHMtMTQuNjY4LTYuNTgtMTQuNjY4LTE0LjY2OGMwLTUuNTIyLTQuNDc4LTEwLTEwLTEwcy0xMCA0LjQ3OC0xMCAxMGMwIDguMDg4LTYuNTggMTQuNjY4LTE0LjY2OSAxNC42NjgtOC4wODggMC0xNC42NjgtNi41OC0xNC42NjgtMTQuNjY4IDAtNS41MjItNC40NzgtMTAtMTAtMTBzLTEwIDQuNDc4LTEwIDEwYzAgOC4wODgtNi41OCAxNC42NjgtMTQuNjY4IDE0LjY2OHMtMTQuNjY4LTYuNTgtMTQuNjY4LTE0LjY2OGMwLTUuNTIyLTQuNDc4LTEwLTEwLTEwcy0xMCA0LjQ3OC0xMCAxMGMwIDguMDg4LTYuNTggMTQuNjY4LTE0LjY2OCAxNC42NjhzLTE0LjY2OC02LjU4LTE0LjY2OC0xNC42Njh2LTQ5LjMzNmMwLTUuNTIyLTQuNDc4LTEwLTEwLTEwaC0xMS4yMzhjLTMwLjk4NCAwLTU2LjE5Mi0yNS4yMDgtNTYuMTkyLTU2LjE5MyAwLTEyLjE4MiAzLjgzMy0yMy43NyAxMS4wODYtMzMuNTExIDEuNzUtMi4zNTIgMi4zODEtNS4zNTMgMS43MjUtOC4yMS0xOC45NTQtODIuNTQ2IDMwLjA3OC0xNjQuNTIgMTExLjYyNi0xODYuNjIzIDUuMzMtMS40NDQgOC40OC02LjkzNyA3LjAzNS0xMi4yNjgtMS40NDQtNS4zMy02LjkzMi04LjQ4LTEyLjI2OC03LjAzNS0yMy45NzYgNi40OTgtNDUuOTg0IDE3Ljg4MS02NC45MDEgMzMuMjczbC0xOS45MTQtMTkuOTEzYzQuOTYxLTcuNjM5IDcuNjIxLTE2LjU1MyA3LjYyMS0yNS44NzYgMC0xMi43MjUtNC45NTUtMjQuNjg4LTEzLjk1My0zMy42ODctOC45OTctOC45OTgtMjAuOTYxLTEzLjk1My0zMy42ODctMTMuOTUzLTEyLjcyNSAwLTI0LjY4OCA0Ljk1NS0zMy42ODcgMTMuOTU0LTYuNjk1IDYuNjk1LTExLjE2IDE1LjA2NS0xMi45OTcgMjQuMTY5LTkuMTA0IDEuODM3LTE3LjQ3NSA2LjMwMi0yNC4xNjkgMTIuOTk3LTE4LjU3NCAxOC41NzQtMTguNTc0IDQ4Ljc5OC0uMDAxIDY3LjM3MyAxNi4xNSAxNi4xNDkgNDEuMTA1IDE4LjI1OCA1OS41NTcgNi4zMjRsMjUuMjgxIDI1LjI4MmMtMTguNDM5IDM1LjcyNi0yNC4wODIgNzYuMzM3LTE1Ljk4NiAxMTYuMDc3LTguMTA3IDEyLjM4MS0xMi4zNjkgMjYuNjc3LTEyLjM2OSA0MS42MjcgMCAyMi41OTkgOS44OTkgNDIuOTIgMjUuNTc3IDU2Ljg4NmwtMjIuNTAzIDIyLjUwNGMtMTguNDUxLTExLjkzMi00My40MDgtOS44MjQtNTkuNTU3IDYuMzI0LTE4LjU3MyAxOC41NzUtMTguNTczIDQ4Ljc5OS4wMDEgNjcuMzcyIDYuNjk0IDYuNjk1IDE1LjA2NCAxMS4xNjEgMjQuMTY5IDEyLjk5OCAxLjgzOCA5LjEwNCA2LjMwMiAxNy40NzQgMTIuOTk3IDI0LjE3IDguOTk4IDguOTk4IDIwLjk2MiAxMy45NTMgMzMuNjg3IDEzLjk1MyAxMi43MjYgMCAyNC42ODktNC45NTUgMzMuNjg3LTEzLjk1MyAxNi4xNDktMTYuMTUgMTguMjU3LTQxLjEwNiA2LjMyNC01OS41NTZsMjMuMDQ5LTIzLjA0OHY3Ljg3OWMwIDE5LjExNiAxNS41NTIgMzQuNjY4IDM0LjY2OCAzNC42NjggOS42NDIgMCAxOC4zNzgtMy45NTcgMjQuNjY4LTEwLjMzMiA2LjI5IDYuMzc1IDE1LjAyNiAxMC4zMzIgMjQuNjY4IDEwLjMzMnMxOC4zNzgtMy45NTcgMjQuNjY4LTEwLjMzMmM2LjI5IDYuMzc1IDE1LjAyNiAxMC4zMzIgMjQuNjY4IDEwLjMzMiA5LjY0MyAwIDE4LjM3OS0zLjk1NyAyNC42NjktMTAuMzMyIDYuMjkgNi4zNzUgMTUuMDI2IDEwLjMzMiAyNC42NjggMTAuMzMyIDE5LjExNiAwIDM0LjY2OC0xNS41NTIgMzQuNjY4LTM0LjY2OHYtNy4yNjdsMjIuNDM3IDIyLjQzNmMtMTEuOTMzIDE4LjQ0OS05LjgyNSA0My40MDUgNi4zMjQgNTkuNTU2IDguOTk3IDguOTk4IDIwLjk2MSAxMy45NTMgMzMuNjg3IDEzLjk1MyAxMi43MjUgMCAyNC42ODgtNC45NTUgMzMuNjg3LTEzLjk1NCA2LjY5NS02LjY5NSAxMS4xNTktMTUuMDY1IDEyLjk5Ny0yNC4xNjkgOS4xMDQtMS44MzcgMTcuNDc1LTYuMzAyIDI0LjE2OS0xMi45OTcgMTguNTc0LTE4LjU3NCAxOC41NzQtNDguNzk4LjAwMS02Ny4zNzMtMTYuMTUyLTE2LjE0OS00MS4xMDctMTguMjU2LTU5LjU1OC02LjMyNHptLTMwLjg0MS0zMDUuODY3YzMuOTA1LTMuOTA1IDMuOTA1LTEwLjIzNyAwLTE0LjE0My01LjIyMS01LjIyMS04LjA5Ni0xMi4xNjEtOC4wOTYtMTkuNTQ0czIuODc1LTE0LjMyNCA4LjA5Ni0xOS41NDRjNS4yMi01LjIyMSAxMi4xNjEtOC4wOTYgMTkuNTQ0LTguMDk2czE0LjMyMyAyLjg3NSAxOS41NDQgOC4wOTVjNS4xMjUgNS4xMjYgNy45OTYgMTEuOTQ2IDguMDg1IDE5LjIwNC4wNjUgNS40MjggNC40NDkgOS44MTIgOS44NzYgOS44NzggNy4yNjEuMDg5IDE0LjA4MSAyLjk2MSAxOS4yMDUgOC4wODYgMTAuNzc2IDEwLjc3NiAxMC43NzcgMjguMzEyLjAwMSAzOS4wODgtMTAuNzc3IDEwLjc3OC0yOC4zMTIgMTAuNzc2LTM5LjA4OSAwLTMuOTA2LTMuOTA0LTEwLjIzNi0zLjkwNC0xNC4xNDMgMGwtMjcuNjEyIDI3LjYxMmMtNi4xNjgtOS4xMzktMTMuMTA1LTE3LjYwOC0yMC43MDctMjUuMzQxem0tMzQwLjkzIDIzLjAyNWMtNS4yMiA1LjIyMS0xMi4xNjEgOC4wOTYtMTkuNTQ0IDguMDk2LTcuMzg0IDAtMTQuMzI0LTIuODc1LTE5LjU0NS04LjA5Ni0xMC43NzYtMTAuNzc2LTEwLjc3NS0yOC4zMTIuMDAxLTM5LjA4OSA1LjEyNC01LjEyNCAxMS45NDQtNy45OTYgMTkuMjA1LTguMDg1IDUuNDI3LS4wNjYgOS44MTEtNC40NSA5Ljg3Ni05Ljg3OC4wODktNy4yNTggMi45Ni0xNC4wNzggOC4wODUtMTkuMjAzIDUuMjIxLTUuMjIxIDEyLjE2MS04LjA5NiAxOS41NDQtOC4wOTZzMTQuMzI0IDIuODc1IDE5LjU0NCA4LjA5NmMxMC43NzcgMTAuNzc2IDEwLjc3NyAyOC4zMTIgMCAzOS4wODgtMy45MDUgMy45MDUtMy45MDUgMTAuMjM3IDAgMTQuMTQzbDI1LjYwMiAyNS42MDJjLTcuNTgyIDcuNzUyLTE0LjQ5OCAxNi4yNDEtMjAuNjQ3IDI1LjQwMWwtMjcuOTc4LTI3Ljk3OGMtMy45MDYtMy45MDUtMTAuMjM2LTMuOTA1LTE0LjE0My0uMDAxem0zNy4xNjYgMzI2LjMzM2MtMy45MDUgMy45MDUtMy45MDUgMTAuMjM3IDAgMTQuMTQzIDUuMjIxIDUuMjIxIDguMDk2IDEyLjE2MSA4LjA5NiAxOS41NDRzLTIuODc1IDE0LjMyMy04LjA5NiAxOS41NDRjLTUuMjIgNS4yMjEtMTIuMTYxIDguMDk2LTE5LjU0NCA4LjA5NnMtMTQuMzIzLTIuODc1LTE5LjU0NC04LjA5NWMtNS4xMjUtNS4xMjYtNy45OTYtMTEuOTQ2LTguMDg1LTE5LjIwNC0uMDY1LTUuNDI4LTQuNDQ5LTkuODEyLTkuODc2LTkuODc4LTcuMjYxLS4wODktMTQuMDgxLTIuOTYxLTE5LjIwNS04LjA4Ni0xMC43NzYtMTAuNzc2LTEwLjc3Ny0yOC4zMTItLjAwMS0zOS4wODggNS4yMjEtNS4yMjEgMTIuMTYxLTguMDk2IDE5LjU0NS04LjA5NiA3LjM4MyAwIDE0LjMyMyAyLjg3NSAxOS41NDQgOC4wOTYgMy45MDYgMy45MDQgMTAuMjM2IDMuOTA0IDE0LjE0MyAwbDMxLjU2NC0zMS41NjRjMTAuMTc3IDUuMDQ4IDIxLjYyNyA3LjkwMSAzMy43MzcgNy45MDFoMS4yMzh2My4xNzJ6bTM4MC4wMTggMTYuMDY0Yy01LjEyNCA1LjEyNC0xMS45NDQgNy45OTYtMTkuMjA1IDguMDg1LTUuNDI3LjA2Ni05LjgxMSA0LjQ1LTkuODc2IDkuODc4LS4wODkgNy4yNTgtMi45NiAxNC4wNzgtOC4wODUgMTkuMjAzLTUuMjIxIDUuMjIxLTEyLjE2MSA4LjA5Ni0xOS41NDQgOC4wOTZzLTE0LjMyNC0yLjg3NS0xOS41NDQtOC4wOTZjLTUuMjIxLTUuMjIxLTguMDk2LTEyLjE2MS04LjA5Ni0xOS41NDRzMi44NzUtMTQuMzIzIDguMDk2LTE5LjU0NGMzLjkwNS0zLjkwNSAzLjkwNS0xMC4yMzcgMC0xNC4xNDNsLTQyLjkwMy00Mi45MDN2LTMuNzg0aDEuOTIzYzExLjc2NiAwIDIyLjkxNi0yLjY4NCAzMi44NzQtNy40NjdsMzEuMTMgMzEuMTNjMy45MDYgMy45MDQgMTAuMjM2IDMuOTA0IDE0LjE0MyAwIDEwLjc3Ni0xMC43NzcgMjguMzEzLTEwLjc3NiAzOS4wODkgMHMxMC43NzQgMjguMzEyLS4wMDIgMzkuMDg5eiIgZmlsbD0iIzAwMDAwMCIvPjxwYXRoIGlkPSJYTUxJRF8xMTQzXyIgZD0ibTI1Ni44NTkgNzQuMjA5YzIuNjMxIDAgNS4yMS0xLjA3IDcuMDctMi45NCAxLjg2LTEuODU5IDIuOTMtNC40MyAyLjkzLTcuMDY5IDAtMi42MzEtMS4wNjktNS4yLTIuOTMtNy4wNjEtMS44Ni0xLjg3LTQuNDM5LTIuOTM5LTcuMDctMi45MzktMi42MyAwLTUuMjEgMS4wNjktNy4wNjkgMi45MzktMS44NiAxLjg2LTIuOTMxIDQuNDMtMi45MzEgNy4wNjEgMCAyLjY0IDEuMDcgNS4yMSAyLjkzMSA3LjA2OSAxLjg1OSAxLjg3IDQuNDM5IDIuOTQgNy4wNjkgMi45NHoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9nPjwvc3ZnPgo=" />
         </div>
       </div>
 
@@ -232,7 +319,7 @@
         <br>
         <br>
         <br>
-        <center><p1>Maximum number of deaths caused by drug use...</p1></center>
+        <center><p1>Maximum number of deaths caused by drug overdose...</p1></center>
         <div class="container counter-section">
         <div class="row text-center">
 

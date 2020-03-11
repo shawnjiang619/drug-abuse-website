@@ -157,6 +157,10 @@ var EXECUTED = false;
 					"gradient": {
 						"enabled": true,
 						"percentage": 100
+					},
+					"pieCenterOffset": {
+						"x": 60,
+						"y": 20
 					}
 				},
 				"callbacks": {

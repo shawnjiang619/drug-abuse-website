@@ -3,9 +3,12 @@
 }
 
 #pie-chart-content {
-flex: 0 0 45%;
-display: flex;
-flex-flow: column;
+    flex: 1 0 45%;
+    display: flex;
+    flex-flow: column;
+}
+
+#pie-chart {
 }
 
 #pie-defs-wrapper {

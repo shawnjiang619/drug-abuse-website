@@ -1,4 +1,5 @@
 #sunburst-wrapper {
+    position: relative;
     display: flex;
     justify-content: space-between;
 }
@@ -39,4 +40,29 @@
 #legendPie {
     font-size: 1.4em;
     font-weight: 400px;
+}
+
+#sunburst-defs-wrapper {
+  flex: 1 0 10%;
+  height: 70vh;
+  position: relative;
+  background-color: #b4b4b4;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+}
+
+#sunburst-instr{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+#sun-definition {
+  border-bottom: 1px solid rgb(0, 0, 0);
+  margin-bottom: 1vh;
+  height: 20vh;
+  padding-bottom: 1vh;
 }

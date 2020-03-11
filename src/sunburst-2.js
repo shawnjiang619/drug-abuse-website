@@ -135,11 +135,7 @@ var zoomFlag = false;
   // Functions for creating sunburst
   // ==============================
   var createVisualization = function(data) { 
-    var radius = pieFilters.length == 0 ?
-                  CENTER_PIE_RADIUS :
-                  pieFilters.length == 1 ?
-                    PIE_INNER_RADIUS :
-                    PIE_RADIUS;
+    var radius = PIE_INNER_RADIUS;
     var x = d3.scaleLinear().range([0, 2 * Math.PI]);
     var y = d3.scaleSqrt().range([0, radius]);
     var partition = d3.partition();
@@ -162,8 +158,6 @@ var zoomFlag = false;
                 .sum(function(d) { return d.size; })
                 .sort(function(a, b) { return b.value - a.value; });
     var nodes = partition(root).descendants();
-    var legendDomain = [];
-    var legendRange = [];
     var legendMap = {};
     var path = viz.selectAll("path")
         .data(nodes)
@@ -176,49 +170,23 @@ var zoomFlag = false;
         .style("stroke", "fff")
         .style("fill", function (d, i) { 
             var color = getColor(d, i);
-            legendDomain.push(d.data.name);
-            legendRange.push(color);
-            legendMap[d.data.name] = color;
-        
+            legendMap[d.data.name] = color;    
             return color;
         })
         .on("click", click)
-        .on("mouseover", mouseoverPie)
-        .on("mouseleave", mouseleavePie)
+        .on("mouseover", mouseover)
+        .on("mouseleave", mouseleave)
         .append("title")
             .text(function(d) {
-            if (pieFilters.length == 2 && d.depth == 1) {
-                return "Click to zoom in";
-            }
+              if (d.depth == 1) {
+                  return "Click to zoom in";
+              }
         });
 
     drawLegend(legendMap);
-    // drawSunburstLegend(legendDomain, legendRange);
-
-    function drawSunburstLegend(legendDomain, legendRange) {
-      var ordinal = d3.scaleOrdinal()
-        .domain(legendDomain)
-        .range(legendRange);
-
-      var legendOrdinal = d3.legendColor()
-        .shape("path", d3.symbol().type(d3.symbolSquare).size(150)())
-        .shapePadding(10)
-        .title("Legend")
-        .labelWrap(100)
-        .scale(ordinal);
-
-      viz.append("g")
-        .attr("class", "legendPie")
-        .attr("transform", "translate(" + (PIE_RADIUS  + 30) + ",-" + (PIE_RADIUS - 30) + ")")
-        .call(legendOrdinal)
-        .selectAll("text")
-        .style("font-size","1.2em")
-        .style("fill", "white");
-    }
 
     function drawLegend(legendMap) {
       // Dimensions of legend item: width, height, spacing, radius of rounded rect.
-      console.log("called");
       var li = {
         w: 120, h: 20, s: 3, r: 3
       };
@@ -246,17 +214,9 @@ var zoomFlag = false;
           .style("fill", function(d) { return d.value; })
           .text(function(d) { return d.key; })
     }
-    
-    // Add the mouseleave handler to the bounding circle.
-    //viz.selectAll(".slice").on("mouseleave", mouseleavePie);
 
     function click(d) {
-      var legendDomain = [];
-      var legendRange = [];
       var legendMap = {};
-
-      legendDomain.push("Total");
-      legendRange.push(PIE_TOTAL_COLOR);
       legendMap["Total"] = PIE_TOTAL_COLOR;
 
       if (d.depth != 2) {
@@ -278,15 +238,11 @@ var zoomFlag = false;
                 if (d1.depth != 0) {
                   var color = getColor(d1, i);
                   legendMap[d1.data.name] = color;
-                  // legendDomain.push(d1.data.name);
-                  // legendRange.push(color);
                 }
               } else if ((d1.depth == 2 && d1.parent.data.name === d.data.name)
                         || (d1.depth == 1 && d1.data.name === d.data.name)) {
                 var color = getColor(d1, i);
                 legendMap[d1.data.name] = color;
-                // legendDomain.push(d1.data.name);
-                // legendRange.push(color);
               }
           })
           .attrTween("d", function (d) { return function () { return arc(d); }; })
@@ -300,7 +256,6 @@ var zoomFlag = false;
                 return "Click to zoom in";
               }
             });
-          console.log(legendMap);
           drawLegend(legendMap);
       }
     }
@@ -328,14 +283,14 @@ var zoomFlag = false;
       .style("fill", "black");
   }
 
-  function mouseoverPie(d) {
+  function mouseover(d) {
     if (d.depth == 0) {
-      mouseleavePie(d);
+      mouseleave(d);
       return;
     }
 
     if (!zoomFlag) {
-      if (!zoomFlag && d.depth == 1 && pieFilters.length == 2) {
+      if (!zoomFlag && d.depth == 1) {
         $("#pie" + d.data.name.replace(new RegExp("[\\.|\\s\\+|/]", "g"),"-")).css("cursor", "pointer");
       }
     }
@@ -368,7 +323,7 @@ var zoomFlag = false;
       .style("opacity", 1);
   }
 
-  function mouseleavePie(d) {
+  function mouseleave(d) {
     $(".slice").css("cursor", "auto");
     if (zoomFlag) {
       $("#pieTotal").css("cursor", "pointer");

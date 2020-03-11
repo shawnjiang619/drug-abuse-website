@@ -36,7 +36,7 @@
   fill: white;
 }
 
-.legendPie {
-    font-size: 0.8em;
+#legendPie {
+    font-size: 1.4em;
     font-weight: 400px;
 }

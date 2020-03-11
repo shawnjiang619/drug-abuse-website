@@ -1,10 +1,10 @@
 (function () {
     // On page load:
     var myFullpage = new fullpage('#fullpage', {
-        anchors: ['title', 'intro', 'transpie','pie', 'transbar','bar', 'transsunburst', 'sunburst', 'transmap', 'map', 'transradar', 'crime', 'transdeathnum', 'stats', 'bubble'],
+        anchors: ['title', 'intro', 'transpie','pie', 'transbar','bar', 'transsunburst', 'sunburst', 'transmap', 'map', 'transradar', 'crime', 'transdeathnum', 'stats', 'bubble', 'line'],
         navigation: true,
         navigationPosition: 'right',
-        navigationTooltips: ['Title', 'Introduction', 'Transition', 'Most Addictive','Transition', 'Most Popular', 'Transition', 'Age', 'Transition', 'Map Exploration', 'Transition', 'Crime', 'Transition', 'Stats', 'Deaths'],
+        navigationTooltips: ['Title', 'Introduction', 'Transition', 'Most Addictive','Transition', 'Most Popular', 'Transition', 'Age', 'Transition', 'Map Exploration', 'Transition', 'Crime', 'Transition', 'Stats', 'Deaths', 'Line Chart'],
         afterLoad: function(origin, destination, direction) {
             if (destination.index == 3) {
                 executePie();

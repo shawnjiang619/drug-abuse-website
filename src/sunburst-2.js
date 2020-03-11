@@ -5,7 +5,7 @@ var PIE_RADIUS;
 var PIE_INNER_RADIUS;
 var CENTER_PIE_RADIUS;
 var executeSunburst;
-var pieViz;
+var viz;
 var zoomFlag = false;
 
 (function () {
@@ -20,33 +20,33 @@ var zoomFlag = false;
     WIDTH: 230, HEIGHT: 30, SPACING: 3, TAIL: 10
   };
 
-  var PIE_TOTAL_COLOR = "#872121"; //757575
+  var PIE_TOTAL_COLOR = "#808080"; //757575
 
   var COLOR_BREWER = {
     "Total": PIE_TOTAL_COLOR,
-    "12": "#98FB98",
-    "13": "#90EE90",
-    "14": "#00FA9A",
-    "15": "#00FF7F",
-    "16": "#32CD32",
-    "17": "#3CB371",
-    "18": "#2E8B57",
-    "19": "#228B22",
-    "20": "#008000",
-    "21": "#006400",
-    "alcohol": "#405d98",
-    "marijuana": "#8c9dc1",
-    "cocaine": "#334a79",
-    "crack": "#26375b",
-    "heroin": "#6177b4",
-    "hallucinogen": "#4c6c99",
-    "inhalant": "#354b6b",
-    "painreliever": "#1e2b3d",
-    "oxycontin": "#3c4776",
-    "tranquilizer": "#837482",
-    "stimulant": "#5b515b",
-    "meth": "#c1b9c0",
-    "sedative": "#D0A3C1",
+    "12": "#8cb3d9",
+    "13": "#79a6d2",
+    "14": "#6699cc",
+    "15": "#538cc6",
+    "16": "#4080bf",
+    "17": "#3973ac",
+    "18": "#336699",
+    "19": "#2d5986",
+    "20": "#264d73",
+    "21": "#204060",
+    "alcohol": "#91130a",
+    "marijuana": "#a31a10",
+    "cocaine": "#b5251b",
+    "crack": "#e60000",
+    "heroin": "#d13126",
+    "hallucinogen": "#d94338",
+    "inhalant": "#590a04",
+    "painreliever": "#700b04",
+    "oxycontin": "#820b03",
+    "tranquilizer": "#ff3021",
+    "stimulant": "#e0544a",
+    "meth": "#f2746b",
+    "sedative": "#e3918a",
   }
 
   var NON_COLORS = [
@@ -59,24 +59,21 @@ var zoomFlag = false;
   var pieFilters = [];
   executeSunburst = function () {
       // Canvas dimensions
-      PIE_RADIUS = Math.min(PIE_CANVAS_WIDTH, PIE_CANVAS_HEIGHT) / 2 - 10;
-
-      // Radius of inner circle when selecting two filters, 
-      // or the radius of the circle when selecting one filter
+      PIE_RADIUS = Math.min(PIE_CANVAS_WIDTH, PIE_CANVAS_HEIGHT) / 1.75;
       PIE_INNER_RADIUS = PIE_RADIUS * 49 / 60;
 
       CENTER_PIE_RADIUS = PIE_RADIUS * 15 / 26;
 
-      createPieViz();
+      createSunburst();
   };
 
-  var createPieViz = function() { 
-      pieViz = d3.select(CANVAS_CLASS_ID).append("svg")
+  var createSunburst = function() { 
+      viz = d3.select(CANVAS_CLASS_ID).append("svg")
       .attr("width", PIE_CANVAS_WIDTH)
       .attr("height", PIE_CANVAS_HEIGHT)
       .append("g")
       .attr("id", "sunburst-container")
-      .attr("transform", "translate(" + PIE_CANVAS_WIDTH / 2 + ","
+      .attr("transform", "translate(" + (PIE_CANVAS_WIDTH - 200) / 2 + ","
                                       + PIE_CANVAS_HEIGHT / 2 + ")");
 
       d3.text("https://raw.githubusercontent.com/UW-CSE442-WI20/FP-understanding-drug-abuse/master/static/sunburst-data.csv").then(function(text) {
@@ -167,7 +164,8 @@ var zoomFlag = false;
     var nodes = partition(root).descendants();
     var legendDomain = [];
     var legendRange = [];
-    var path = pieViz.selectAll("path")
+    var legendMap = {};
+    var path = viz.selectAll("path")
         .data(nodes)
         .enter().append("path")
         .attr("d", arc)
@@ -180,10 +178,11 @@ var zoomFlag = false;
             var color = getColor(d, i);
             legendDomain.push(d.data.name);
             legendRange.push(color);
+            legendMap[d.data.name] = color;
         
             return color;
         })
-        .on("click", clickPie)
+        .on("click", click)
         .on("mouseover", mouseoverPie)
         .on("mouseleave", mouseleavePie)
         .append("title")
@@ -193,7 +192,8 @@ var zoomFlag = false;
             }
         });
 
-    drawSunburstLegend(legendDomain, legendRange);
+    drawLegend(legendMap);
+    // drawSunburstLegend(legendDomain, legendRange);
 
     function drawSunburstLegend(legendDomain, legendRange) {
       var ordinal = d3.scaleOrdinal()
@@ -207,7 +207,7 @@ var zoomFlag = false;
         .labelWrap(100)
         .scale(ordinal);
 
-      pieViz.append("g")
+      viz.append("g")
         .attr("class", "legendPie")
         .attr("transform", "translate(" + (PIE_RADIUS  + 30) + ",-" + (PIE_RADIUS - 30) + ")")
         .call(legendOrdinal)
@@ -216,29 +216,29 @@ var zoomFlag = false;
         .style("fill", "white");
     }
 
-    function drawLegend(legendDomain, legendRange) {
+    function drawLegend(legendMap) {
       // Dimensions of legend item: width, height, spacing, radius of rounded rect.
+      console.log("called");
       var li = {
-        w: 130, h: 20, s: 3, r: 3
+        w: 120, h: 20, s: 3, r: 3
       };
+
+      viz.append("g")
+        .attr("id", "legendPie")
+        .attr("transform", "translate(" + (PIE_RADIUS  + 30) + ",-" + (PIE_RADIUS - 60) + ")");
+      
+      $("#legendPie").empty();
     
-      var legend = d3.select("legendPie").append("svg:svg")
+      var legend = d3.select("#legendPie").append("svg:svg")
           .attr("width", li.w)
-          .attr("height", d3.keys(colors).length * (li.h + li.s));
+          .attr("height", d3.keys(legendMap).length * (li.h + li.s));
     
       var g = legend.selectAll("g")
-          .data(d3.entries(colors))
+          .data(d3.entries(legendMap))
           .enter().append("svg:g")
           .attr("transform", function(d, i) {
                   return "translate(0," + i * (li.h) + ")";
                 });
-    
-      // g.append("svg:rect")
-      //     .attr("rx", li.r)
-      //     .attr("ry", li.r)
-      //     .attr("width", li.w)
-      //     .attr("height", li.h)
-      //     .style("fill", function(d) { return d.value; });
     
       g.append("svg:text")
           .attr("dy", "1em")
@@ -248,20 +248,22 @@ var zoomFlag = false;
     }
     
     // Add the mouseleave handler to the bounding circle.
-    //pieViz.selectAll(".slice").on("mouseleave", mouseleavePie);
+    //viz.selectAll(".slice").on("mouseleave", mouseleavePie);
 
-    function clickPie(d) {
+    function click(d) {
       var legendDomain = [];
       var legendRange = [];
+      var legendMap = {};
 
       legendDomain.push("Total");
       legendRange.push(PIE_TOTAL_COLOR);
+      legendMap["Total"] = PIE_TOTAL_COLOR;
 
       if (d.depth != 2) {
         zoomFlag = d.depth == 0 ? false : true;
         $(".slice").css("cursor", "auto");
-        pieViz.select(".legendPie").remove();
-        pieViz.transition()
+        viz.select("#legendPie").remove();
+        viz.transition()
           .duration(750)
           .tween("scale", function () {
             var xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
@@ -275,14 +277,16 @@ var zoomFlag = false;
               if (d.depth == 0) {
                 if (d1.depth != 0) {
                   var color = getColor(d1, i);
-                  legendDomain.push(d1.data.name);
-                  legendRange.push(color);
+                  legendMap[d1.data.name] = color;
+                  // legendDomain.push(d1.data.name);
+                  // legendRange.push(color);
                 }
               } else if ((d1.depth == 2 && d1.parent.data.name === d.data.name)
                         || (d1.depth == 1 && d1.data.name === d.data.name)) {
                 var color = getColor(d1, i);
-                legendDomain.push(d1.data.name);
-                legendRange.push(color);
+                legendMap[d1.data.name] = color;
+                // legendDomain.push(d1.data.name);
+                // legendRange.push(color);
               }
           })
           .attrTween("d", function (d) { return function () { return arc(d); }; })
@@ -296,10 +300,8 @@ var zoomFlag = false;
                 return "Click to zoom in";
               }
             });
-
-          if ($(".legendPie").length <= 0) {
-            drawSunburstLegend(legendDomain, legendRange);
-          }
+          console.log(legendMap);
+          drawLegend(legendMap);
       }
     }
 
@@ -359,7 +361,7 @@ var zoomFlag = false;
       .style("opacity", 0.3);
 
     // Then highlight only those that are an ancestor of the current segment.
-    pieViz.selectAll(".slice")
+    viz.selectAll(".slice")
       .filter(function (node) {
         return (sequenceArray.indexOf(node) >= 0);
       })

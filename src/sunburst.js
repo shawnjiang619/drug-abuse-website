@@ -32,9 +32,6 @@ var colors = {
   "stimulant": "#5b515b",
   "meth": "#c1b9c0",
   "sedative": "#D0A3C1",
-//   "Chemical": "#f8de7e",
-//   "Poisoning": "#f4cb34",
-//   "Unknown": "#b1bfc5",
 };
 
 
@@ -130,7 +127,7 @@ function click(d) {
     legendDomain.push("Total");
     legendRange.push("#872121");
     $(".slice").css("cursor", "auto");
-    vis.select(".legendPie").remove();
+    vis.select("#legendPie").remove();
     vis.transition()
     .duration(750)
     .tween("scale", function () {

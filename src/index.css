@@ -11,16 +11,27 @@ h1, h2, h3, h4, div, h5, h6 {
 
 html { font-size: 12px; }
 h1 { font-size: 3.4em;  line-height: 1.05em; font-weight: 700; }
-h2 { font-size: 1.55em; line-height: 1.35em; font-weight: 700; }
-h3 { font-size: 1.2em; line-height: 1.35em; font-weight: 700; }
-h4 { font-size: 1.55em; line-height: 1.35em; font-weight: 300; }
+h2 { font-size: 2.5em; line-height: 1.35em; font-weight: 700; }
+h3 { font-size: 1.4em; line-height: 1.35em; font-weight: 700; }
+h4 { font-size: 1.55em; line-height: 1.35em; font-weight: 500; }
 h5 { font-size: 1.2em;  line-height: 1.30em; font-weight: 400; }
 h6 { font-size: 1em; line-height: 1.3em; font-weight: 400; }
 h7 { font-size: 0.9em; line-height: 1em; font-weight: 400; }
 
+ul li {
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1.3em;
+    margin: 10px;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     color: #1A1A1A;
+}
+
+.text-highlight {
+    color: #850f04;
 }
 
 .text-def {
@@ -74,13 +85,6 @@ body {
 .viz-wrapper {
     display: flex;
     justify-content: space-between;
-}
-
-.insights-header {
-    color: #850f04;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 0.5px solid #1A1A1A;
 }
 
 p.trans-text {

@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 
     <!-- CSS -->
-    <link type="text/css" href="./index.css" rel="stylesheet">
+    
     <link type="text/css" href="./pie.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./bar.css">
     <link rel="stylesheet" type="text/css" href="./map.css">
@@ -29,8 +29,7 @@
     <link rel="stylesheet" href="./num.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- JavaScript -->
-    <!-- <script src="./pie.js"></script> -->
+    <link type="text/css" href="./index.css" rel="stylesheet">
 
   </head>
   <body>
@@ -92,7 +91,6 @@
           <p class="trans-text">
             Drugs are used more frequently than we thought
           </p>
-
         </div>
         <div id="pill-img-wrapper" style="vertical-align:middle; text-align:center">
           <img id="pill" class="icon-img" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI5NyAyOTciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI5NyAyOTc7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8cGF0aCBkPSJNMjIxLjg4NSwwYy0zNi45MjIsMC02Ni45NjEsMzAuMDM5LTY2Ljk2MSw2Ni45NjF2NTcuNzA2Yy0xNS44MzUtMTIuMDk3LTM1LjA4Mi0xOC42NjYtNTUuMzQ4LTE4LjY2NiAgYy0yNC40MiwwLTQ3LjM3OCw5LjUxLTY0LjY0NSwyNi43NzdTOC4xNTQsMTczLjAwMyw4LjE1NCwxOTcuNDIzczkuNTEsNDcuMzc4LDI2Ljc3Nyw2NC42NDVzNDAuMjI1LDI2Ljc3Nyw2NC42NDUsMjYuNzc3ICBjMjQuMDgzLDAsNDYuNzMyLTkuMjY1LDYzLjkxNS0yNi4wODFDMTc0Ljk3NSwyODMuMTc3LDE5Ni44NDMsMjk3LDIyMS44ODUsMjk3YzM2LjkyMiwwLDY2Ljk2MS0zMC4wMzksNjYuOTYxLTY2Ljk2MVY2Ni45NjEgIEMyODguODQ2LDMwLjAzOSwyNTguODA3LDAsMjIxLjg4NSwweiBNMjIxLjg4NSwxOS43NjdjMjYuMDIyLDAsNDcuMTk0LDIxLjE3MSw0Ny4xOTQsNDcuMTk0djcxLjY1NmgtOTQuMzg4VjY2Ljk2MSAgQzE3NC42OTEsNDAuOTM4LDE5NS44NjMsMTkuNzY3LDIyMS44ODUsMTkuNzY3eiBNMTUwLjI0NCwxNDYuNzU2YzIuNTEzLDIuNTEzLDQuODE0LDUuMTgsNi44OTgsNy45NzkgIGMwLjAxOCwwLjAyMiwwLjAzMywwLjA0NCwwLjA1MSwwLjA2NWM5LjExMywxMi4yNjQsMTQuMDM4LDI3LjA2NSwxNC4wMzgsNDIuNjIzYzAsMTUuODAzLTUuMDk0LDMwLjgxOC0xNC40ODQsNDMuMTk0ICBMNTYuMzgzLDE0MC4yNTJjMTIuMzc1LTkuMzkxLDI3LjM5LTE0LjQ4NCw0My4xOTQtMTQuNDg0QzExOC43MTYsMTI1Ljc2OCwxMzYuNzEsMTMzLjIyMSwxNTAuMjQ0LDE0Ni43NTZ6IE00OC45MDksMjQ4LjA5MSAgYy0xMy41MzUtMTMuNTM0LTIwLjk4OC0zMS41MjgtMjAuOTg4LTUwLjY2OGMwLTE1LjgwMyw1LjA5NC0zMC44MTgsMTQuNDg0LTQzLjE5NEwxNDIuNzcsMjU0LjU5NSAgYy0xMi4zNzUsOS4zOTEtMjcuMzksMTQuNDg0LTQzLjE5NCwxNC40ODRDODAuNDM3LDI2OS4wNzksNjIuNDQzLDI2MS42MjYsNDguOTA5LDI0OC4wOTF6IE0yMjEuODg1LDI3Ny4yMzMgIGMtMjAuNTkxLDAtMzguMTMzLTEzLjI2MS00NC41NjQtMzEuNjg3YzguODk4LTE0LjMxNSwxMy42NzgtMzAuODQ3LDEzLjY3OC00OC4xMjJjMC0xMy43MjYtMy4wMDUtMjYuOTg5LTguNzAyLTM5LjA0aDg2Ljc4MnY3MS42NTYgIEMyNjkuMDc5LDI1Ni4wNjIsMjQ3LjkwOCwyNzcuMjMzLDIyMS44ODUsMjc3LjIzM3oiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
@@ -115,15 +113,15 @@
               </div>
 
               <div id="text-wrapper">
-                <h5 style="line-height: 2;">We can clearly see that Marijuana is the top runner in drug popularity.
+                <h3 style="line-height: 2;">We can clearly see that Marijuana is the top runner in drug popularity.
                   A survey done in 2018 shows that more than 43 million citizens have used cannabis product in the past month. That’s around 15 percent of the US population.
                   Several reasons contribute to this matter.
-                </h5>
-                <h5 style="line-height: 2;">
+                </h3>
+                <h3 style="line-height: 2;">
                   Marijuana legalization have led to more cannabis use and perhaps addiction
                   — highlighting a public health downside to a policy change that now 11 states and Washington, DC, have adopted and several others are considering.
                   Another reason Marijuana is becoming mainstream is that lots of people think its harmless. By a margin of 72 percent to 20 percent, Americans say that regular alcohol use is more of a health risk than regular marijuana use.
-                </h5>
+                </h3>
               </div>
           </div>
           </div>
@@ -132,7 +130,7 @@
       <div class="section text">
         <div id="sunburst-text-wrapper" class = text-wrapper>
           <p class="trans-text">
-            Age breakdown
+            How often do teenagers use drugs?
           </p>
         </div>
         <div id="age-img-wrapper" style="vertical-align:middle; text-align:center">
@@ -144,7 +142,7 @@
         <div id="sunburst-container" class="section-container">
 
           <div class="section-intro">
-            <h1>Drug Use By Age</h1>
+            <h1>Drug Use Breakdown Among Teenagers</h1>
             <h5> <br><span class="dir">Click the segments to zoom in.</span></br> </h5>
           </div>
 
@@ -156,7 +154,15 @@
             </div>
             
             <div id="sunburst-defs-wrapper">
-              <div id="sunburst-instr"><h3>Select a drug to learn more</h3></div>
+              <h2 id="sunburst-defs-header">Things to Note & Key Takeaways</h2>
+              <ul>
+                <li>This is substance usage data in the year of 2017.</li>
+                <li>As age increases, teenagers tend to be exposed to drugs more often.</li>
+                <li>Alcohol is the most widely consumed substance amongst teenagers, followed by marijuana.</li>
+                <li><span>Alcohol is </span><span class = "text-highlight">legal</span> after the age of 21. Marijuana is also <span class = "text-highlight">legal</span> <span>in some states. </span><span class = "text-highlight">Not too bad.</span></li>
+                <li>As seen previously, heroin may be the most <span class = "text-highlight">addictive</span> but not most widely used.</li>
+                <li>Many other substances like pain-relievers are consumed out of medical prescription, but not as dangerous as the lesser used drugs like crack and cocaine.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -239,15 +245,15 @@
             <div id="radartext" style = "flex: 0 0 40%;
                 height: 60vh;
                 position: relative;">
-              <h4 style="line-height: 2">Click/Unclick the legend to filter out/filter specific years.
-              </h4>
-              <h4 style="line-height: 2">
+              <h3 style="line-height: 2" class = "text-highlight">Click/Unclick the legend to filter out/filter specific years.
+              </h3>
+              <h3 style="line-height: 2">
                   Some research studies have found that a lot of acquisitive crime (stealing) is committed by dependent users of heroin and crack cocaine trying to pay for their drugs.
-              </h4>
-              <h4 style="line-height: 2">
+              </h3>
+              <h3 style="line-height: 2">
                   Some show a high proportion of people arrested for a range of offenses testing positive for drug use.
                   It has been suggested that one third to over a half of all acquisitive crime is related to illegal drug use.
-              </h4>
+              </h3>
             </div>
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
@@ -323,38 +329,38 @@
         <br>
         <br>
         <br>
-        <center><p1>Maximum number of deaths caused by drug overdose...</p1></center>
+        <center><h1>Maximum number of deaths caused by drug overdose...</h1></center>
         <div class="container counter-section">
         <div class="row text-center">
 
         <div class="col-md-4 counter-box">
-        <p class="counter">1632</p>
-        <p>AFRICA</p>
+        <h5 class="counter">1632</h5>
+        <h5>AFRICA</h5>
         </div>
 
         <div class="col-md-4 counter-box">
-        <p class="counter">77416</p>
-        <p>AMERICAS</p>
+        <h5 class="counter">77416</h5>
+        <h5>AMERICAS</h5>
         </div>
 
         <div class="col-md-4 counter-box">
-        <p class="counter">32518</p>
-        <p>ASIA</p>
+        <h5 class="counter">32518</h5>
+        <h5>ASIA</h5>
         </div>
 
         <div class="col-md-4 counter-box">
-        <p class="counter">19883</p>
-        <p>EUROPE</p>
+        <h5 class="counter">19883</h5>
+        <h5>EUROh5E</h5>
         </div>
 
         <div class="col-md-4 counter-box">
-        <p class="counter">2160</p>
-        <p>AUSTRALIA</p>
+        <h5 class="counter">2160</h5>
+        <h5>AUSTRALIA</h5>
         </div>
 
         <div class="col-md-4 counter-box">
-          <p class="counter">133609</p>
-          <p>GLOBAL</p>
+          <h5 class="counter">133609</h5>
+          <h5>GLOBAL</h5>
         </div>
 
         </div>
@@ -362,8 +368,8 @@
       </div>
 
       <div class="section crime">
-        <div id="bubble-container" style="display: flex">
-          <div class='tableauPlaceholder' id='viz1583390147278' style='position: relative; flex: 0 0 60%'>
+        <div id="bubble-container" class = "section-container viz-wrapper">
+          <div class='tableauPlaceholder' id='viz1583390147278' style='flex: 0 0 60%'>
             <noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;US_state_deaths&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a>
             </noscript>
             <object class='tableauViz'  style='display:none;'>
@@ -399,14 +405,14 @@
               scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
               vizElement.parentNode.insertBefore(scriptElement, vizElement);
           </script>
-          <div style="flex: 0 0 40%">
-            <h4 style="line-height: 2; padding-top: 40px;">
+          <div style="flex: 1 0 40%">
+            <h3 class = "text-highlight" style="line-height: 2; padding-top: 40px;">
               Hover over the bubble chart to see age-adjust rate and number of deaths in different states.
-            </h4>
-            <h4 style="line-height: 2;">
+            </h3>
+            <h3 style="line-height: 2;">
               Age-adjust rates are summary measures adjusted for differences in age distributions, represented by the darkness of blue.
-              umber of deaths is represented by the circle area.
-            </h4>
+              number of deaths is represented by the circle area.
+            </h3>
           </div>
         </div>
 
@@ -417,9 +423,7 @@
         <!-- <div class="section-intro">
           <h1>An Overview of the Most Addictive Substances</h1>
         </div> -->
-        <div id="line-container" class="viz-wrapper">
-
-
+        <div id="line-container" class="viz-wrapper section-container">
             <div id="line-chart-content" style="flex: 0 0 60%">
               <div id="line-chart">
                 <div class='tableauPlaceholder' id='viz1583721857069' style='position: relative'>
@@ -457,13 +461,11 @@
               </div>
             </div>
 
-            <div id="line-defs-wrapper" style="display: flex; justify-content: center; align-items: center">
-            <h4 style="float: left; line-height: 2;">
+            <div id="line-defs-wrapper" style="flex: 1 0 20%">
+            <h3 style="line-height: 2; padding-top: 40px;">
               Drug overdose deaths continue to increase in the United States. From 1999 to 2017, more than 702,000 people have died from a drug overdose.
-            <!-- </h4>
-            <h4 style="flex: 0 0 50%; float: left; line-height: 2;"> -->
               In 2017, more than 70,000 people died from drug overdoses, making it a leading cause of injury-related death in the United States.
-            </h4>
+            </h3>
             </div>
           </div>
 

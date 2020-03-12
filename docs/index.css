@@ -19,7 +19,7 @@ h6 { font-size: 1em; line-height: 1.3em; font-weight: 400; }
 h7 { font-size: 0.9em; line-height: 1em; font-weight: 400; }
 
 ul li {
-    font-size: 2em;
+    font-size: 1.55em;
     font-weight: 500;
     line-height: 1.3em;
     margin: 10px;
@@ -85,6 +85,11 @@ body {
 .viz-wrapper {
     display: flex;
     justify-content: space-between;
+}
+
+.insights-wrapper {
+    padding-left: 40px;
+    flex: 1 0 20%;
 }
 
 p.trans-text {

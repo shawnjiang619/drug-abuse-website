@@ -41,8 +41,8 @@
       <div class="section text">
         <div id="intro-text-wrapper" class = text-wrapper>
           <h2 style="text-align:left; padding-left: 150px; padding-right: 150px; line-height: 2;">
-            About <span style="color:#850f04">38%</span> of of adults in 2017 battled an illicit drug use disorder and
-            more than <span style="color:#850f04">$740 billion</span> was lost anaually in workplace productivity, healthcare expenses, and crime-related costs.
+            About <span style="color:#850f04">38%</span> of adults in 2017 battled an illicit drug use disorder and
+            more than <span style="color:#850f04">$740 billion</span> was lost anually in workplace productivity, healthcare expenses, and crime-related costs.
           </h2>
           <h2 style="text-align:left; padding-top: 40px; padding-left: 150px; padding-right: 150px; line-height: 2;">
             This project aims to explore various aspects on drug use and drug abuse and trys to improve our understanding of this issues and help improve government policy
@@ -75,7 +75,7 @@
             <div id="pie-defs-wrapper">
               <div id="pie-instr"><h3>Select a drug to learn more</h3></div>
               <div id="pie-defs-container">
-                <h2 id="pie-defs-header"></h2>
+                <h3 id="pie-defs-header"></h3>
                 <div id="pie-definition"></div>
                 <h3 id="pie-defs-effects-header"></h3>
                 <div id="pie-definition-effects"></div>
@@ -237,7 +237,7 @@
             <!-- <h5> <br><span class="dir">TODO: Crime Chart</span></br> </h5> -->
           </div>
           <div id="radarchart" class = "viz-wrapper">
-            <div id = "radar-chart-content" style = "flex: 0 0 60%;
+            <div id = "radar-chart-content" style = "flex: 1 0 60%;
             display: flex;
             flex-flow: column;" >
               <canvas id="myChart"></canvas>
@@ -245,7 +245,9 @@
             <div id="radartext" style = "flex: 0 0 40%;
                 height: 60vh;
                 position: relative;">
-              <h3 style="line-height: 2" class = "text-highlight">Click/Unclick the legend to filter out/filter specific years.
+              <h3 style="line-height: 2" class = "text-highlight">Select/Deselect the legend to filter out/filter specific years.
+              </h3>
+              <h3 style="line-height: 2" class = "text-highlight">Hover over the radar chart to explore number of deaths affected by different drug types.
               </h3>
               <h3 style="line-height: 2">
                   Some research studies have found that a lot of acquisitive crime (stealing) is committed by dependent users of heroin and crack cocaine trying to pay for their drugs.
@@ -405,7 +407,7 @@
               scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
               vizElement.parentNode.insertBefore(scriptElement, vizElement);
           </script>
-          <div style="flex: 1 0 40%">
+          <div class = "insights-wrapper">
             <h3 class = "text-highlight" style="line-height: 2; padding-top: 40px;">
               Hover over the bubble chart to see age-adjust rate and number of deaths in different states.
             </h3>
@@ -461,7 +463,7 @@
               </div>
             </div>
 
-            <div id="line-defs-wrapper" style="flex: 1 0 20%">
+            <div id="line-defs-wrapper" class = "insights-wrapper">
             <h3 style="line-height: 2; padding-top: 40px;">
               Drug overdose deaths continue to increase in the United States. From 1999 to 2017, more than 702,000 people have died from a drug overdose.
               In 2017, more than 70,000 people died from drug overdoses, making it a leading cause of injury-related death in the United States.

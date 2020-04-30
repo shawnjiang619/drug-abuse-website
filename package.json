@@ -16,6 +16,6 @@
   "dependencies": {
     "d3": "^5.15.0",
     "fullpage.js": "^3.0.8",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   }
 }
